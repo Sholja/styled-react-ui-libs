@@ -1,0 +1,75 @@
+{
+  "name": "react-ui-components",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27",
+    "polished": "^3.4.4",
+    "react-icons": "^3.9.0",
+    "simple-react-modal": "^0.5.1",
+    "styled-system": "^5.1.5"
+  },
+  "peerDependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@sambego/storybook-state": "^1.3.6",
+    "@storybook/addon-knobs": "^5.2.4",
+    "@storybook/addon-storyshots": "^5.2.5",
+    "@storybook/addon-viewport": "^5.2.5",
+    "@storybook/react": "^5.2.5",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.3.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.23",
+    "cross-env": "^7.0.0",
+    "husky": "^4.2.3",
+    "inquirer": "^7.0.0",
+    "jest-dom": "^3.4.0",
+    "prettier": "^1.18.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.1.2",
+    "rollup": "^1.26.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-css-only": "^1.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-svg": "^2.0.0"
+  },
+  "scripts": {
+    "build:watch": "rollup -cw",
+    "build": "NODE_ENV=production rollup -c && ./scripts/build.sh",
+    "build-storybook": "build-storybook -c .storybook -o build",
+    "eject": "react-scripts eject",
+    "lint:fix": "node_modules/eslint/bin/eslint.js src --ext .js --fix",
+    "lint": "node_modules/eslint/bin/eslint.js src --ext .js",
+    "start": "start-storybook -p 9001 -c .storybook",
+    "test": "react-scripts test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">1%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all",
+    "> 10% in US",
+    "> 20% in BR"
+  ]
+}

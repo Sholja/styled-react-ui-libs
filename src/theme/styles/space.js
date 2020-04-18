@@ -1,0 +1,18 @@
+export const space = {
+  '-xxxl': '-40px',
+  '-xxl': '-30px',
+  '-xl': '-20px',
+  '-lg': '-24px',
+  '-md': '-10px',
+  '-sm': '-8px',
+  '-xs': '-4px',
+  0: 0,
+  xxs: '4px',
+  xs: '8px',
+  sm: '10px',
+  md: '14px',
+  lg: '20px',
+  xl: '30px',
+  xxl: '35px',
+  xxxl: '40px',
+};
