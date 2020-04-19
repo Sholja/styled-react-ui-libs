@@ -1,5 +1,5 @@
 {
-  "name": "react-ui-components",
+  "name": "mop-react-ui-components",
   "version": "0.0.1",
   "main": "dist/index.js",
   "files": [
@@ -49,6 +49,7 @@
   "scripts": {
     "build:watch": "rollup -cw",
     "build": "NODE_ENV=production rollup -c",
+    "publish": "./scripts/publish.sh",
     "build-storybook": "build-storybook -c .storybook -o build",
     "eject": "react-scripts eject",
     "lint:fix": "node_modules/eslint/bin/eslint.js src --ext .js --fix",
