@@ -14,10 +14,15 @@ const colorStyles = [
   DefaultTheme.colors.danger,
 ];
 
+const sizes = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
 storiesOf('Heading', module).add(
   'Basic',
   () => (
-    <Heading as="h2" color={select('Colors', colorStyles, colorStyles[1])}>
+    <Heading
+      as={select('Size', sizes, sizes[1])}
+      color={select('Colors', colorStyles, colorStyles[1])}
+    >
       Just a simple component for displaying heading.
     </Heading>
   ),
