@@ -60,7 +60,7 @@ React UI Components
   `yarn test`
 
 * Build storybook for deployment
-  `yarn build-storyboo`
+  `yarn build-storybook`
 
 ## Usage
 
@@ -87,10 +87,6 @@ Install Visual Studio Code extensions:
 
 Should you want to impose specific Visual Studio Code editor configuration, you can do that in [settings.json](https://github.com/SwipeStoxGmbH/naga-card/tree/master/.vscode/settings.json)
 
-## Localization support
-
-The application supports multiple languages. **redux-i18n** package is being used for translation purposes.
-Amongst other useful features, HTML translation is supported. Check out [redux-i18n](https://github.com/APSL/redux-i18n) for possible usage examples.
 
 ## Authors and contributors
 
