@@ -1,5 +1,6 @@
 src
 dist
+build
 .storybook
 node_modules
 .editorconfig

@@ -44,9 +44,6 @@ React UI Components
 * Start project:
   `yarn start`
 
-* Start project
-  `yarn start`
-
 * Create a deployable build
   `yarn build`
 
@@ -92,6 +89,6 @@ Should you want to impose specific Visual Studio Code editor configuration, you 
 
 * **Eldin Soljic** - [Sholja](https://github.com/Sholja) - **Software Developer**
 
-See also the list of [contributors](https://github.com/SwipeStoxGmbH/naga-card/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Sholja/mop-react-ui-components/graphs/contributors) who participated in this project.
 
 # Happy coding!

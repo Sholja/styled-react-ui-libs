@@ -55,7 +55,7 @@ storiesOf('DefaultRadio', module)
     },
   )
   .add(
-    'Text input with error',
+    'Radio input with error',
     () => (
       <State store={store}>
         <DefaultRadio

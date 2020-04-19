@@ -50,7 +50,7 @@ storiesOf('DefaultSelect', module)
     },
   )
   .add(
-    'Text input with error',
+    'Select dropdown with error',
     () => (
       <State store={store}>
         <DefaultSelect

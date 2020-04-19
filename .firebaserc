@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "react-ui-components",
-    "react-ui-components": "react-ui-components-22fbe"
+    "production": "react-ui-components-22fbe"
   }
 }
