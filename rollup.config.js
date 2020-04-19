@@ -20,11 +20,16 @@ export default {
   external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
   plugins: [
     resolve({ extensions }),
-    commonjs(),
     babel({
       exclude: 'node_modules/**',
       include: ['src/**/*'],
       extensions,
+    }),
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        'node_modules/react-is/index.js': ['isValidElementType'],
+      },
     }),
     svg(),
     css({ output: './dist/styles.css' }),

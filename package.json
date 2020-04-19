@@ -48,13 +48,13 @@
   },
   "scripts": {
     "build:watch": "rollup -cw",
-    "build": "NODE_ENV=production rollup -c && ./scripts/build.sh",
+    "build": "NODE_ENV=production rollup -c",
     "build-storybook": "build-storybook -c .storybook -o build",
     "eject": "react-scripts eject",
     "lint:fix": "node_modules/eslint/bin/eslint.js src --ext .js --fix",
     "lint": "node_modules/eslint/bin/eslint.js src --ext .js",
     "start": "start-storybook -p 9001 -c .storybook",
-    "test": "react-scripts test"
+    "test": "cross-env CI=true react-scripts test --env=jsdom"
   },
   "husky": {
     "hooks": {

@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "react-ui-components",
+    "react-ui-components": "react-ui-components-22fbe"
+  }
+}
