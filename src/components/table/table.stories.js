@@ -98,7 +98,7 @@ storiesOf('Table', module)
         </TableRow>
         <TableRow>
           <TableBodyRow>Nedim</TableBodyRow>
-          <TableBodyRow>Hadzijalic</TableBodyRow>
+          <TableBodyRow>Hadzialic</TableBodyRow>
           <TableBodyRow>1991</TableBodyRow>
         </TableRow>
       </TableBody>

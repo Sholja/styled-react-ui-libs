@@ -16,6 +16,8 @@ import {
 } from 'styled-system';
 
 import Box from '../box/box';
+import Loader from '../loader/loader';
+import RenderIf from '../render-if/render-if';
 import DefaultTheme from '../../theme/theme';
 
 const buttonSize = variant({
@@ -38,7 +40,6 @@ const DISABLED_STYLES = {
 const StyledButton = styled(Box)(
   {
     cursor: 'pointer',
-    display: 'inline-block',
     outline: 0,
     transition: '100ms',
   },
@@ -57,12 +58,27 @@ StyledButton.defaultProps = {
   btnSize: 'md',
   textDecoration: 'none',
   variant: 'primary',
-  textAlign: 'center',
   fontWeight: 'bold',
   padding: `${DefaultTheme.space.xxs} ${DefaultTheme.space.md}`,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
-const Button = ({ dataTestId, disabled, as, onClick, ...rest }) => {
+const Button = ({
+  dataTestId = '',
+  disabled = false,
+  showLoader = false,
+  hideContentWhileLoading = false,
+  loaderSize = '16px',
+  loaderThickness = '2px',
+  loaderColor,
+  loaderSpinSpeed = 2,
+  as,
+  onClick,
+  children,
+  ...rest
+}) => {
   return (
     <StyledButton
       data-testid={dataTestId}
@@ -70,13 +86,29 @@ const Button = ({ dataTestId, disabled, as, onClick, ...rest }) => {
       disabled={disabled}
       onClick={disabled ? undefined : onClick}
       {...rest}
-    />
+    >
+      <RenderIf show={!hideContentWhileLoading}>{children}</RenderIf>
+      <RenderIf show={showLoader}>
+        <Loader
+          ml={hideContentWhileLoading ? DefaultTheme.space[0] : DefaultTheme.space.xs}
+          spinSpeed={loaderSpinSpeed}
+          trailColor="transparent"
+          size={loaderSize}
+          thick={loaderThickness}
+          loaderColor={loaderColor}
+        />
+      </RenderIf>
+    </StyledButton>
   );
 };
 
 Button.propTypes = {
   dataTestId: PropTypes.string,
   disabled: PropTypes.bool,
+  showLoader: PropTypes.bool,
+  loaderSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  loaderThickness: PropTypes.string,
+  loaderColor: PropTypes.string,
   as: PropTypes.string,
   variant: PropTypes.string,
   onClick: PropTypes.func,

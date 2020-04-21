@@ -33,6 +33,12 @@ const UploadButton = ({
   children,
   variant = 'primary',
   size = 'md',
+  showLoader,
+  hideContentWhileLoading,
+  loaderSize,
+  loaderThickness,
+  loaderColor,
+  loaderSpinSpeed,
   ...rest
 }) => {
   const elementId = id || generateRandomString(16);
@@ -60,6 +66,12 @@ const UploadButton = ({
       onClick={handleButtonClick}
       variant={variant}
       btnSize={size}
+      showLoader={showLoader}
+      hideContentWhileLoading={hideContentWhileLoading}
+      loaderSize={loaderSize}
+      loaderThickness={loaderThickness}
+      loaderColor={loaderColor}
+      loaderSpinSpeed={loaderSpinSpeed}
       data-testid={dataTestId}
     >
       {children}
@@ -86,6 +98,12 @@ UploadButton.propTypes = {
   acceptMultiple: PropTypes.bool,
   variant: PropTypes.string,
   size: PropTypes.string,
+  showLoader: PropTypes.bool,
+  hideContentWhileLoading: PropTypes.bool,
+  loaderSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  loaderThickness: PropTypes.string,
+  loaderColor: PropTypes.string,
+  loaderSpinSpeed: PropTypes.number,
 };
 
 export default UploadButton;

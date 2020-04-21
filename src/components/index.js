@@ -1,8 +1,6 @@
 import { ThemeProvider } from 'emotion-theming';
-import * as ReactIcons from 'react-icons/all';
 
 export { ThemeProvider };
-export { ReactIcons };
 
 export { default as Avatar } from './avatar/avatar';
 export { default as Box } from './box/box';
@@ -16,11 +14,14 @@ export { default as DefaultSelect } from './default-select/default-select';
 export { default as DefaultTextarea } from './default-textarea/default-textarea';
 export { default as EmptyState } from './empty-state/empty-state';
 export { default as Flex } from './flex/flex';
+export { default as Footer } from './footer/footer';
 export { default as Grid } from './grid/grid';
 export { default as GridItem } from './grid-item/grid-item';
 export { default as Heading } from './heading/heading';
+export { default as Header } from './header/header';
 export { default as Hyperlink } from './hyperlink/hyperlink';
 export { default as Image } from './image/image';
+export { default as Loader } from './loader/loader';
 export { default as Modal } from './modal/modal';
 export { default as Paging } from './paging/paging';
 export { default as RenderIf } from './render-if/render-if';
