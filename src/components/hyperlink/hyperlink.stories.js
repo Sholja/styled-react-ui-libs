@@ -47,7 +47,7 @@ storiesOf('Hyperlink', module)
     ),
     {
       notes:
-        'This is pretty much component for displaying text. It is just paragraphs wrapped as styled component.',
+        'This is pretty much component for displaying hyperlink.',
     },
   )
   .add(

@@ -12,6 +12,6 @@ storiesOf('RenderIf', module).add(
   ),
   {
     notes:
-      'RenderIf is a simple component for displaying some content based on boolean. If prop open is passed as true, content of RenderIf component will be displayed, if boolean is false, RenderIf component will return null.',
+      'RenderIf is a simple component for displaying some content based on boolean. If prop "show" is passed as true, content of RenderIf component will be displayed, if boolean is false, RenderIf component will return null.',
   },
 );
