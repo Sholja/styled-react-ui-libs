@@ -1,14 +1,16 @@
-# mop-react-ui-components
+# styled-react-ui-libs
 
 React UI Components
 
-## Project architecture:
+## Quick start:
 
-* Framework: React
+* Install with [npm](https://www.npmjs.com/): `npm install styled-react-ui-libs`
+* Install with [yarn](https://yarnpkg.com/): `yarn add styled-react-ui-libs`
 
 * Language: Javascript
 
 * Packet manager: Yarn
+
 
 ## Project implementation:
 
@@ -17,7 +19,7 @@ React UI Components
 * 📒 Folders
 * 📑 Files
 
-### Project arhitecture:
+### Project architecture:
 
 * 📒 src
   * 📒 assets
@@ -89,6 +91,6 @@ Should you want to impose specific Visual Studio Code editor configuration, you 
 
 * **Eldin Soljic** - [Sholja](https://github.com/Sholja) - **Software Developer**
 
-See also the list of [contributors](https://github.com/Sholja/mop-react-ui-components/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Sholja/styled-react-ui-libs/graphs/contributors) who participated in this project.
 
 # Happy coding!
