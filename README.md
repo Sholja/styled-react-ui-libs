@@ -66,7 +66,7 @@ React UI Components
 You'll need to wrap your app in the exported theme provider to be able to use any components:
 
 ```
-import { DefaultTheme, ThemeProvider, Text } from 'mop-react-ui-components';
+import { DefaultTheme, ThemeProvider, Text } from 'styled-react-ui-libs';
 
 const App = () =>
   <ThemeProvider theme={DefaultTheme}>
