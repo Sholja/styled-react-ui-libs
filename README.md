@@ -52,7 +52,7 @@ React UI Components
 * To build locally and test in other app:
   - Run `yarn run build:watch`.
   - Run `yarn link` - this will set the local build of the package to resolve to.
-  - In the other project directory run `yarn link "mop-react-ui-components"`.
+  - In the other project directory run `yarn link "styled-react-ui-libs"`.
   - After you are done, run `yarn unlink`.
 
 * Trigger tests
