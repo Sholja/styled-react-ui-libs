@@ -2,13 +2,22 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import RenderIf from './render-if';
+import CodeSnippet from '../code-snippet/code-snippet';
 
 storiesOf('RenderIf', module).add(
   'Display heading with RenderIf component',
   () => (
-    <RenderIf show={true}>
-      <h1>Render with RenderIf component</h1>
-    </RenderIf>
+    <>
+      <RenderIf show={true}>
+        <h1>Render with RenderIf component</h1>
+      </RenderIf>
+      <CodeSnippet>
+        {`
+          <RenderIf show={true}>
+            <h1>Render with RenderIf component</h1>
+          </RenderIf>`}
+      </CodeSnippet>
+    </>
   ),
   {
     notes:

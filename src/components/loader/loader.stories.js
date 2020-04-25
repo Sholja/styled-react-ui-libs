@@ -3,6 +3,7 @@ import React from 'react';
 import { select } from '@storybook/addon-knobs';
 
 import Loader from './loader';
+import CodeSnippet from '../code-snippet/code-snippet';
 import DefaultTheme from '../../theme/theme';
 
 const sizes = {
@@ -39,13 +40,25 @@ const spinSpeeds = {
 storiesOf('Loader', module).add(
   'Basic',
   () => (
-    <Loader
-      size={select('Loader Size', sizes, sizes['100px'])}
-      thick={select('Loader Thickness', thickness, thickness['16px'])}
-      trailColor={select('Loader Trail Color', colorStyles, colorStyles[0])}
-      loaderColor={select('Loader Color', colorStyles, colorStyles[1])}
-      spinSpeed={select('Loader Spin Speed', spinSpeeds, spinSpeeds[0])}
-    />
+    <>
+      <Loader
+        size={select('Loader Size', sizes, sizes['100px'])}
+        thick={select('Loader Thickness', thickness, thickness['16px'])}
+        trailColor={select('Loader Trail Color', colorStyles, colorStyles[0])}
+        loaderColor={select('Loader Color', colorStyles, colorStyles[1])}
+        spinSpeed={select('Loader Spin Speed', spinSpeeds, spinSpeeds[0])}
+      />
+      <CodeSnippet>
+        {`
+        <Loader
+          size="100px"
+          thick="16px"
+          trailColor="#FFF"
+          loaderColor="#000"
+          spinSpeed={2}
+        />`}
+      </CodeSnippet>
+    </>
   ),
   {
     notes: `Customisable loader. You can specify "trail" color, "loaderColor" etc.`,

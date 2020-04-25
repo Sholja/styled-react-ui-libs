@@ -4,6 +4,7 @@ import { select } from '@storybook/addon-knobs';
 import React from 'react';
 
 import CustomCheckbox from './custom-checkbox';
+import CodeSnippet from '../code-snippet/code-snippet';
 import DefaultTheme from '../../theme/theme';
 
 const store = new Store({
@@ -28,13 +29,26 @@ storiesOf('CustomCheckbox', module)
   .add(
     'Basic',
     () => (
-      <State store={store}>
-        <CustomCheckbox
-          active={store.state.active}
-          onClick={() => onChange(store.state.active)}
-          meta={{ touched: false, error: '', invalid: false }}
-        />
-      </State>
+      <>
+        <State store={store}>
+          <CustomCheckbox
+            active={store.state.active}
+            onClick={() => onChange(store.state.active)}
+            meta={{ touched: false, error: '', invalid: false }}
+          />
+        </State>
+        <CodeSnippet>
+          {`
+          <CustomCheckbox
+            active={true}
+            onClick={handleCheckboxClick}
+            meta={{ touched: false, error: '', invalid: false }}
+            activeColor="#000"
+            inactiveColor="#CCC"
+            iconColor="#FFF" />
+          `}
+        </CodeSnippet>
+      </>
     ),
     {
       notes:

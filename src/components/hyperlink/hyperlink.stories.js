@@ -3,6 +3,7 @@ import { select } from '@storybook/addon-knobs';
 import React from 'react';
 
 import Hyperlink from './hyperlink';
+import CodeSnippet from '../code-snippet/code-snippet';
 import DefaultTheme from '../../theme/theme';
 
 const colorStyles = [
@@ -36,25 +37,38 @@ storiesOf('Hyperlink', module)
   .add(
     'Basic',
     () => (
-      <Hyperlink
-        href="#"
-        color={select('Colors', colorStyles, colorStyles[2])}
-        fontWeight={select('Font Weights', fontWeights, fontWeights[0])}
-        fontSize={select('Font Sizes', fontSizes, fontSizes[4])}
-      >
-        For displaying hyperlinks
-      </Hyperlink>
+      <>
+        <Hyperlink
+          href="#"
+          color={select('Colors', colorStyles, colorStyles[2])}
+          fontWeight={select('Font Weights', fontWeights, fontWeights[0])}
+          fontSize={select('Font Sizes', fontSizes, fontSizes[4])}
+        >
+          For displaying hyperlinks
+        </Hyperlink>
+        <CodeSnippet>
+          {`
+            <Hyperlink
+              href="https://github.com/Sholja/styled-react-ui-libs"
+              color="#000"
+              fontSize="14px"
+              target="_blank"
+              onClick={handleHyperlinkClick}
+            >
+              For displaying hyperlinks
+            </Hyperlink>`}
+        </CodeSnippet>
+      </>
     ),
     {
-      notes:
-        'This is pretty much component for displaying hyperlink.',
+      notes: 'This is pretty much component for displaying hyperlink.',
     },
   )
   .add(
     'With passed href',
     () => (
       <Hyperlink
-        href="https://google.com"
+        href="https://github.com/Sholja/styled-react-ui-libs"
         target="_blank"
         color={select('Colors', colorStyles, colorStyles[2])}
         fontWeight={select('Font Weights', fontWeights, fontWeights[0])}

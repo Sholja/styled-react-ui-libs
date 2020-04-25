@@ -2,17 +2,28 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import DefaultTextarea from './default-textarea';
+import CodeSnippet from '../code-snippet/code-snippet';
 
 storiesOf('DefaultTextarea', module)
   .add(
     'Basic',
     () => (
-      <DefaultTextarea
-        name="storybook"
-        meta={{ touched: false, error: '', invalid: false }}
-        label="Storybook textarea"
-        rows={4}
-      />
+      <>
+        <DefaultTextarea
+          name="storybook"
+          meta={{ touched: false, error: '', invalid: false }}
+          label="Storybook textarea"
+          rows={4}
+        />
+        <CodeSnippet>
+          {`
+            <DefaultTextarea
+              name="styled-textarea"
+              meta={{ touched: false, error: '', invalid: false }}
+              label="This is a textarea field"
+              rows={4} />`}
+        </CodeSnippet>
+      </>
     ),
     {
       notes: 'Pretty simple textarea input.',

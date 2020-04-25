@@ -3,6 +3,7 @@ import { storiesOf, forceReRender } from '@storybook/react';
 import { State, Store } from '@sambego/storybook-state';
 
 import DefaultRadio from './default-radio';
+import CodeSnippet from '../code-snippet/code-snippet';
 
 const store = new Store({
   active: false,
@@ -17,38 +18,52 @@ storiesOf('DefaultRadio', module)
   .add(
     'Basic',
     () => (
-      <State store={store}>
-        <DefaultRadio
-          name="storybook-1"
-          value="radio-input-1"
-          meta={{ touched: false, error: '', invalid: false }}
-          label="Storybook Radio 1"
-          input={{
-            onChange,
-          }}
-          checked={store.state.active === 'radio-input-1'}
-        />
-        <DefaultRadio
-          name="storybook-2"
-          value="radio-input-2"
-          meta={{ touched: false, error: '', invalid: false }}
-          label="Storybook Radio 2"
-          input={{
-            onChange,
-          }}
-          checked={store.state.active === 'radio-input-2'}
-        />
-        <DefaultRadio
-          name="storybook-3"
-          value="radio-input-3"
-          meta={{ touched: false, error: '', invalid: false }}
-          label="Storybook Radio 3"
-          input={{
-            onChange,
-          }}
-          checked={store.state.active === 'radio-input-3'}
-        />
-      </State>
+      <>
+        <State store={store}>
+          <DefaultRadio
+            name="storybook-1"
+            value="radio-input-1"
+            meta={{ touched: false, error: '', invalid: false }}
+            label="Storybook Radio 1"
+            input={{
+              onChange,
+            }}
+            checked={store.state.active === 'radio-input-1'}
+          />
+          <DefaultRadio
+            name="storybook-2"
+            value="radio-input-2"
+            meta={{ touched: false, error: '', invalid: false }}
+            label="Storybook Radio 2"
+            input={{
+              onChange,
+            }}
+            checked={store.state.active === 'radio-input-2'}
+          />
+          <DefaultRadio
+            name="storybook-3"
+            value="radio-input-3"
+            meta={{ touched: false, error: '', invalid: false }}
+            label="Storybook Radio 3"
+            input={{
+              onChange,
+            }}
+            checked={store.state.active === 'radio-input-3'}
+          />
+        </State>
+        <CodeSnippet>
+          {`
+          <DefaultRadio
+            name="styled-radio"
+            meta={{ touched: false, error: '', invalid: false }}
+            label="This is a radio field"
+            checked={true}
+            input={{
+              onChange: handleRadioInputChange,
+            }} />
+          `}
+        </CodeSnippet>
+      </>
     ),
     {
       notes: 'Pretty simple input type radio.',

@@ -3,6 +3,7 @@ import { select } from '@storybook/addon-knobs';
 import React from 'react';
 
 import Heading from './heading';
+import CodeSnippet from '../code-snippet/code-snippet';
 import DefaultTheme from '../../theme/theme';
 
 const colorStyles = [
@@ -19,12 +20,23 @@ const sizes = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 storiesOf('Heading', module).add(
   'Basic',
   () => (
-    <Heading
-      as={select('Size', sizes, sizes[1])}
-      color={select('Colors', colorStyles, colorStyles[1])}
-    >
-      Just a simple component for displaying heading.
-    </Heading>
+    <>
+      <Heading
+        as={select('Size', sizes, sizes[1])}
+        color={select('Colors', colorStyles, colorStyles[1])}
+      >
+        Just a simple component for displaying heading.
+      </Heading>
+      <CodeSnippet>
+        {`
+        <Heading
+          as="h1"
+          color="#000"
+        >
+          Heading component
+        </Heading>`}
+      </CodeSnippet>
+    </>
   ),
   {
     notes:

@@ -2,17 +2,30 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import DefaultInput from './default-input';
+import CodeSnippet from '../code-snippet/code-snippet';
 
 storiesOf('DefaultInput', module)
   .add(
     'Basic',
     () => (
-      <DefaultInput
-        name="storybook"
-        meta={{ touched: false, error: '', invalid: false }}
-        label="Storybook input"
-        placeholder="Please type in something here..."
-      />
+      <>
+        <DefaultInput
+          name="storybook"
+          meta={{ touched: false, error: '', invalid: false }}
+          label="Storybook input"
+          placeholder="Please type in something here..."
+        />
+        <CodeSnippet>
+          {`
+          <DefaultInput
+            name="styled-input"
+            meta={{ touched: false, error: '', invalid: false }}
+            label="This is a input field"
+            placeholder="This is a placeholder of the field"
+            type="password" />
+          `}
+        </CodeSnippet>
+      </>
     ),
     {
       notes: 'Pretty simple text input.',

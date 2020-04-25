@@ -49,6 +49,7 @@ const Alert = ({ dataTestId, as = '', children, ...rest }) => (
 
 Alert.propTypes = {
   dataTestId: PropTypes.string,
+  as: PropTypes.string,
 };
 
 export default Alert;
