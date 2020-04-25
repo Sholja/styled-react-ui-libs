@@ -3,6 +3,7 @@ import * as React from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
 
 import Button from './button';
+import CodeSnippet from '../code-snippet/code-snippet';
 import DefaultTheme from '../../theme/theme';
 
 const sizes = ['sm', 'md', 'lg'];
@@ -19,13 +20,28 @@ const variants = [
 
 storiesOf('Button', module)
   .add('Basic', () => (
-    <Button
-      btnSize={select('Sizes', sizes, sizes[1])}
-      variant={select('Variant', variants, variants[0])}
-      disabled={boolean('Disabled', false)}
-    >
-      Button
-    </Button>
+    <>
+      <Button
+        btnSize={select('Sizes', sizes, sizes[1])}
+        variant={select('Variant', variants, variants[0])}
+        disabled={boolean('Disabled', false)}
+      >
+        Button
+      </Button>
+      <CodeSnippet>
+        {`
+          <Button
+            btnSize="md"
+            variant="success"
+            disabled="false"
+            showLoader="true"
+            loaderSize="12px"
+            hideContentWhileLoading>
+            This is a Button
+          </Button>
+          `}
+      </CodeSnippet>
+    </>
   ))
   .add('Button with loader', () => (
     <Button

@@ -1,6 +1,7 @@
 export const baseColors = {
   white: '#fff',
   black: '#000',
+  code: '#24292e',
 
   saltwater: '#10bcc3',
   freshwater: '#00a9e0',
@@ -28,6 +29,7 @@ export const baseColors = {
     1800: '#d8dce6',
     1900: '#bcbcbc',
     2000: '#eeeeee',
+    2100: '#f6f8fa',
 
     text: '#4a4a4a',
     header: '#9b9b9b',
@@ -111,6 +113,7 @@ const colors = {
   black: baseColors.black,
   white: baseColors.white,
   text: baseColors.greys.text,
+  code: baseColors.code,
 
   grey: baseColors.grey,
   greys: baseColors.greys,

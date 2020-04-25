@@ -3,6 +3,7 @@ import React from 'react';
 import { select } from '@storybook/addon-knobs';
 
 import Header from './header';
+import CodeSnippet from '../code-snippet/code-snippet';
 import Text from '../text/text';
 import DefaultTheme from '../../theme/theme';
 
@@ -24,13 +25,25 @@ const colorStyles = [
 storiesOf('Header', module).add(
   'Basic',
   () => (
-    <Header
-      height={select('Height', heights, heights['100px'])}
-      backgroundColor={select('Colors', colorStyles, colorStyles[0])}
-    >
-      <Text>First item in the header</Text>
-      <Text ml={DefaultTheme.space.md}>Second item in the header</Text>
-    </Header>
+    <>
+      <Header
+        height={select('Height', heights, heights['100px'])}
+        backgroundColor={select('Colors', colorStyles, colorStyles[0])}
+      >
+        <Text>First item in the header</Text>
+        <Text ml={DefaultTheme.space.md}>Second item in the header</Text>
+      </Header>
+      <CodeSnippet>
+        {`
+        <Header
+          height="110px"
+          backgroundColor="#FFF"
+        >
+          <Text>First item in the header</Text>
+          <Text ml="10px">Second item in the header</Text>
+        </Header>`}
+      </CodeSnippet>
+    </>
   ),
   {
     notes: `Header component which will be always fixed to the top of the page.`,

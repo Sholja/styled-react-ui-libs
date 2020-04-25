@@ -4,6 +4,7 @@ import { State, Store } from '@sambego/storybook-state';
 
 import Modal from './modal';
 import Button from '../button/button';
+import CodeSnippet from '../code-snippet/code-snippet';
 import Heading from '../heading/heading';
 import Box from '../box/box';
 
@@ -22,9 +23,23 @@ storiesOf('Modal', module)
   .add(
     'Basic',
     () => (
-      <Modal open={true} handleClose={dummyCloseFunction}>
-        <Heading as="h4">Some Modal content</Heading>
-      </Modal>
+      <>
+        <Modal open={true} handleClose={dummyCloseFunction}>
+          <Heading as="h4">Some Modal content</Heading>
+        </Modal>
+        <CodeSnippet>
+          {`
+            <Modal open={true} 
+              handleClose={handleModalClose} 
+              title="Modal title" 
+              actionButton="Click"
+              onActionButtonClick={handleActionButtonClick}
+              minWidth={['300px', '600px', '600px']} maxWidth={['500px', '800px', '800px']}
+              >
+              <Heading as="h4">Some Modal content</Heading>
+            </Modal>`}
+        </CodeSnippet>
+      </>
     ),
     {
       notes: 'Basic Modal.',
@@ -44,7 +59,11 @@ storiesOf('Modal', module)
   .add(
     'Modal with custom title',
     () => (
-      <Modal open={true} handleClose={dummyCloseFunction} titleComponent={<Heading as="h3">Custom title</Heading>}>
+      <Modal
+        open={true}
+        handleClose={dummyCloseFunction}
+        titleComponent={<Heading as="h3">Custom title</Heading>}
+      >
         <Heading as="h4">Some Modal content</Heading>
       </Modal>
     ),
@@ -55,7 +74,12 @@ storiesOf('Modal', module)
   .add(
     'Modal with action button',
     () => (
-      <Modal open={true} handleClose={dummyCloseFunction} actionButton="Click Me" onActionButtonClick={() => alert('Modal action button clicked')}>
+      <Modal
+        open={true}
+        handleClose={dummyCloseFunction}
+        actionButton="Click Me"
+        onActionButtonClick={() => alert('Modal action button clicked')}
+      >
         <Heading as="h4">Some Modal content</Heading>
       </Modal>
     ),

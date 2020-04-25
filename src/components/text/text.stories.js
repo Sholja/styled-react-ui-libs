@@ -3,6 +3,7 @@ import { select } from '@storybook/addon-knobs';
 import React from 'react';
 
 import Text from './text';
+import CodeSnippet from '../code-snippet/code-snippet';
 import DefaultTheme from '../../theme/theme';
 
 const colorStyles = [
@@ -30,18 +31,30 @@ const fontSizes = [
   DefaultTheme.fontSizes.lg,
   DefaultTheme.fontSizes.xl,
   DefaultTheme.fontSizes.xxl,
-]
+];
 
 storiesOf('Text', module).add(
   'Basic',
   () => (
-    <Text
-      color={select('Colors', colorStyles, colorStyles[1])}
-      fontWeight={select('Font Weights', fontWeights, fontWeights[0])}
-      fontSize={select('Font Sizes', fontSizes, fontSizes[4])}
-    >
-      Just a simple component for displaying text.
-    </Text>
+    <>
+      <Text
+        color={select('Colors', colorStyles, colorStyles[1])}
+        fontWeight={select('Font Weights', fontWeights, fontWeights[0])}
+        fontSize={select('Font Sizes', fontSizes, fontSizes[4])}
+      >
+        Just a simple component for displaying text.
+      </Text>
+      <CodeSnippet>
+        {`
+          <Text
+            color="#000"
+            fontWeight="bold"
+            fontSize="14px"
+          >
+            Just a simple component for displaying text.
+          </Text>`}
+      </CodeSnippet>
+    </>
   ),
   {
     notes:

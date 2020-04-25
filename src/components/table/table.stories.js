@@ -10,6 +10,7 @@ import {
   TableBodyRow,
   DynamicTable,
 } from './index';
+import CodeSnippet from '../code-snippet/code-snippet';
 
 const tableHeaderOptions = [
   {
@@ -33,40 +34,79 @@ const tableItems = [
 
 storiesOf('Table', module)
   .add('Basic', () => (
-    <Table>
-      <TableHead>
-        <TableHeadRow>First Name</TableHeadRow>
-        <TableHeadRow>Last Name</TableHeadRow>
-        <TableHeadRow>Year of Birth</TableHeadRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableBodyRow>Eldin</TableBodyRow>
-          <TableBodyRow>Soljic</TableBodyRow>
-          <TableBodyRow>1985</TableBodyRow>
-        </TableRow>
-        <TableRow>
-          <TableBodyRow>Nikola</TableBodyRow>
-          <TableBodyRow>Majmunovic</TableBodyRow>
-          <TableBodyRow>1986</TableBodyRow>
-        </TableRow>
-        <TableRow>
-          <TableBodyRow>Ognjen</TableBodyRow>
-          <TableBodyRow>Cetkovic</TableBodyRow>
-          <TableBodyRow>1987</TableBodyRow>
-        </TableRow>
-        <TableRow>
-          <TableBodyRow>Amar</TableBodyRow>
-          <TableBodyRow>Hrvat</TableBodyRow>
-          <TableBodyRow>1989</TableBodyRow>
-        </TableRow>
-        <TableRow>
-          <TableBodyRow>Nedim</TableBodyRow>
-          <TableBodyRow>Hadzialic</TableBodyRow>
-          <TableBodyRow>1991</TableBodyRow>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <>
+      <Table>
+        <TableHead>
+          <TableHeadRow>First Name</TableHeadRow>
+          <TableHeadRow>Last Name</TableHeadRow>
+          <TableHeadRow>Year of Birth</TableHeadRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableBodyRow>Eldin</TableBodyRow>
+            <TableBodyRow>Soljic</TableBodyRow>
+            <TableBodyRow>1985</TableBodyRow>
+          </TableRow>
+          <TableRow>
+            <TableBodyRow>Nikola</TableBodyRow>
+            <TableBodyRow>Majmunovic</TableBodyRow>
+            <TableBodyRow>1986</TableBodyRow>
+          </TableRow>
+          <TableRow>
+            <TableBodyRow>Ognjen</TableBodyRow>
+            <TableBodyRow>Cetkovic</TableBodyRow>
+            <TableBodyRow>1987</TableBodyRow>
+          </TableRow>
+          <TableRow>
+            <TableBodyRow>Amar</TableBodyRow>
+            <TableBodyRow>Hrvat</TableBodyRow>
+            <TableBodyRow>1989</TableBodyRow>
+          </TableRow>
+          <TableRow>
+            <TableBodyRow>Nedim</TableBodyRow>
+            <TableBodyRow>Hadzialic</TableBodyRow>
+            <TableBodyRow>1991</TableBodyRow>
+          </TableRow>
+        </TableBody>
+      </Table>
+      <CodeSnippet>
+        {`
+          <Table>
+            <TableHead>
+              <TableHeadRow>First Name</TableHeadRow>
+              <TableHeadRow>Last Name</TableHeadRow>
+              <TableHeadRow>Year of Birth</TableHeadRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableBodyRow>Eldin</TableBodyRow>
+                <TableBodyRow>Soljic</TableBodyRow>
+                <TableBodyRow>1985</TableBodyRow>
+              </TableRow>
+              <TableRow>
+                <TableBodyRow>Nikola</TableBodyRow>
+                <TableBodyRow>Majmunovic</TableBodyRow>
+                <TableBodyRow>1986</TableBodyRow>
+              </TableRow>
+              <TableRow>
+                <TableBodyRow>Ognjen</TableBodyRow>
+                <TableBodyRow>Cetkovic</TableBodyRow>
+                <TableBodyRow>1987</TableBodyRow>
+              </TableRow>
+              <TableRow>
+                <TableBodyRow>Amar</TableBodyRow>
+                <TableBodyRow>Hrvat</TableBodyRow>
+                <TableBodyRow>1989</TableBodyRow>
+              </TableRow>
+              <TableRow>
+                <TableBodyRow>Nedim</TableBodyRow>
+                <TableBodyRow>Hadzialic</TableBodyRow>
+                <TableBodyRow>1991</TableBodyRow>
+              </TableRow>
+            </TableBody>
+          </Table>`}
+      </CodeSnippet>
+    </>
   ))
   .add('Stripped Table', () => (
     <Table stripped>
