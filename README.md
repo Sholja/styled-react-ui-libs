@@ -84,8 +84,6 @@ Install Visual Studio Code extensions:
 * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-Should you want to impose specific Visual Studio Code editor configuration, you can do that in [settings.json](https://github.com/SwipeStoxGmbH/naga-card/tree/master/.vscode/settings.json)
-
 
 ## Authors and contributors
 

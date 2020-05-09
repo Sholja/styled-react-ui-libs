@@ -76,15 +76,25 @@ const Button = ({
   loaderSpinSpeed = 2,
   as,
   onClick,
+  style = {},
+  variant = 'primary',
+  btnSize = 'md',
   children,
   ...rest
 }) => {
+  const buttonStyle = Object.assign(
+    style,
+    DefaultTheme.buttons[variant] || DefaultTheme.buttons.primary,
+    DefaultTheme.buttonSizes[btnSize] || DefaultTheme.buttonSizes.md,
+  );
+
   return (
     <StyledButton
       data-testid={dataTestId}
       as={as}
       disabled={disabled}
       onClick={disabled ? undefined : onClick}
+      style={buttonStyle}
       {...rest}
     >
       <RenderIf show={!hideContentWhileLoading}>{children}</RenderIf>
@@ -111,7 +121,9 @@ Button.propTypes = {
   loaderColor: PropTypes.string,
   as: PropTypes.string,
   variant: PropTypes.string,
+  btnSize: PropTypes.string,
   onClick: PropTypes.func,
+  style: PropTypes.object,
 };
 
 export default Button;
