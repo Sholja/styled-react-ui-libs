@@ -15,7 +15,7 @@ import colorStyles from './styles/color-styles';
 import { headingSizes } from './styles/heading-sizes';
 import { alerts } from './styles/alerts';
 
-export default {
+const theme =  {
   alerts,
   borders,
   buttons,
@@ -38,3 +38,8 @@ export default {
   width: [16, 32, 64, 128, 256],
   breakpoints: ['40em', '52em', '64em', '80em'],
 };
+
+
+export const DefaultTheme = theme;
+
+export default theme;
