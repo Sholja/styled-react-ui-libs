@@ -25,11 +25,11 @@ const StyledCard = styled('div')(
 
 StyledCard.defaultProps = {
   border: '0',
-  borderColor: 'greys.200',
+  borderColor: DefaultTheme.colors.greys[200],
   borderRadius: DefaultTheme.radii.sm,
-  padding: 'md',
-  boxShadow: 'box',
-  background: 'white',
+  padding: DefaultTheme.space.md,
+  boxShadow: DefaultTheme.shadows.box,
+  background: DefaultTheme.colors.white,
 };
 
 const Card = ({ children, ...rest }) => <StyledCard {...rest}>{children}</StyledCard>;

@@ -28,7 +28,7 @@ StyledAlert.defaultProps = {
   border: DefaultTheme.borders[0],
   disabled: false,
   fontFamily: DefaultTheme.fonts.sans,
-  btnSize: 'md',
+  btnSize: DefaultTheme.space.md,
   textDecoration: 'none',
   color: DefaultTheme.colors.white,
   textAlign: 'left',
