@@ -2,10 +2,12 @@ import { ThemeProvider } from 'emotion-theming';
 
 export { ThemeProvider };
 
+export { default as Alert } from './alert/alert';
 export { default as Avatar } from './avatar/avatar';
 export { default as Box } from './box/box';
 export { default as Button } from './button/button';
 export { default as Card } from './card/card';
+export { default as CodeSnippet } from './code-snippet/code-snippet';
 export { default as Container } from './container/container';
 export { default as CustomCheckbox } from './custom-checkbox/custom-checkbox';
 export { default as DefaultInput } from './default-input/default-input.js';
@@ -17,8 +19,9 @@ export { default as Flex } from './flex/flex';
 export { default as Footer } from './footer/footer';
 export { default as Grid } from './grid/grid';
 export { default as GridItem } from './grid-item/grid-item';
-export { default as Heading } from './heading/heading';
 export { default as Header } from './header/header';
+export { default as Heading } from './heading/heading';
+export { default as Hidden } from './hidden/hidden';
 export { default as Hyperlink } from './hyperlink/hyperlink';
 export { default as Image } from './image/image';
 export { default as Loader } from './loader/loader';
