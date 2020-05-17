@@ -84,7 +84,7 @@ const Button = ({
 }) => {
   const buttonStyle = Object.assign(
     style,
-    DefaultTheme.buttons[variant] || DefaultTheme.buttons.primary,
+    disabled ? DISABLED_STYLES : DefaultTheme.buttons[variant] || DefaultTheme.buttons.primary,
     DefaultTheme.buttonSizes[btnSize] || DefaultTheme.buttonSizes.md,
   );
 
