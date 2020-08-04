@@ -2,7 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import DefaultInput from './default-input';
+import Box from '../box/box';
 import CodeSnippet from '../code-snippet/code-snippet';
+
+const RequiredElement = <Box borderRadius="50%" width="4px" height="4px" backgroundColor="red" />;
 
 storiesOf('DefaultInput', module)
   .add(
@@ -55,6 +58,23 @@ storiesOf('DefaultInput', module)
         meta={{ touched: false, '': false, invalid: false }}
         label="Storybook input"
         placeholder="This is an password type input..."
+      />
+    ),
+    {
+      notes: 'You can pass input type, in this case, type is password.',
+    },
+  )
+  .add(
+    'Required',
+    () => (
+      <DefaultInput
+        type="text"
+        name="storybook"
+        meta={{ touched: false, '': false, invalid: false }}
+        label="Storybook input"
+        required
+        elementRequired={RequiredElement}
+        placeholder="This is a required input"
       />
     ),
     {
