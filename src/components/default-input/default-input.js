@@ -15,6 +15,7 @@ import {
 } from 'styled-system';
 
 import Box from '../box/box';
+import Flex from '../flex/flex';
 import Text from '../text/text';
 import DefaultTheme from '../../theme/theme';
 import styles from './default-input-styles';
@@ -38,6 +39,8 @@ const DefaultInput = props => {
     meta: { touched, error },
     input,
     placeholder,
+    required = false,
+    elementRequired,
     id,
     name,
     label,
@@ -45,6 +48,7 @@ const DefaultInput = props => {
     style = {
       outline: 'none',
     },
+    labelStyle = {},
     ...rest
   } = props;
 
@@ -55,13 +59,19 @@ const DefaultInput = props => {
 
   return (
     <>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && (
+        <Flex alignItems="center">
+          <Text style={Object.assign(styles.label, labelStyle)}>{label}</Text>
+          {required && elementRequired ? elementRequired : null}
+        </Flex>
+      )}
       <Box marginTop="8px" position="relative">
         <StyledInput
           id={id || name}
           data-testid={dataTestId}
           placeholder={placeholder}
-          style={Object.assign(style, errorStyle)}
+          required={required}
+          style={Object.assign(errorStyle, style)}
           {...rest}
           {...input}
         />
@@ -83,6 +93,9 @@ DefaultInput.propTypes = {
   inputProps: PropTypes.object,
   input: PropTypes.object,
   style: PropTypes.object,
+  required: PropTypes.bool,
+  elementRequired: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  labelStyle: PropTypes.object,
 };
 
 export default DefaultInput;
