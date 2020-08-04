@@ -24,7 +24,7 @@
   "dependencies": {
     "@emotion/styled": "^10.0.27",
     "emotion-theming": "^10.0.27",
-    "polished": "^3.4.4",
+    "polished": "^3.6.5",
     "react-icons": "^3.9.0",
     "simple-react-modal": "^0.5.1",
     "styled-system": "^5.1.5"
