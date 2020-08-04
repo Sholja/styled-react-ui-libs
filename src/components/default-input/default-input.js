@@ -61,7 +61,7 @@ const DefaultInput = props => {
     <>
       {label && (
         <Flex alignItems="center">
-          <Text style={Object.assign(styles.label, labelStyle)}>{label}</Text>
+          <Text style={{...labelStyle, ...styles.label}}>{label}</Text>
           {required && elementRequired ? elementRequired : null}
         </Flex>
       )}
@@ -71,7 +71,7 @@ const DefaultInput = props => {
           data-testid={dataTestId}
           placeholder={placeholder}
           required={required}
-          style={Object.assign(errorStyle, style)}
+          style={{...style, ...errorStyle}}
           {...rest}
           {...input}
         />
