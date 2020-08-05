@@ -4,13 +4,16 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Modal from './modal';
+import { ThemeProvider, DefaultTheme } from '../../';
 
 const dataTestId = 'modal-content';
 const dummyOnCloseFunction = () => {};
 const getComponent = ({ open, handleClose, dataTestId, ...rest }) => (
-  <Modal open={open} handleClose={handleClose} {...rest}>
-    <p data-testid={dataTestId}>Modal content</p>
-  </Modal>
+  <ThemeProvider theme={DefaultTheme}>
+    <Modal open={open} handleClose={handleClose} {...rest}>
+      <p data-testid={dataTestId}>Modal content</p>
+    </Modal>
+  </ThemeProvider>
 );
 
 afterEach(cleanup);

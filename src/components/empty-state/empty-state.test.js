@@ -4,10 +4,11 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import EmptyState from './empty-state';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const title = 'Empty state title';
 const subtitle = 'Empty state with subtitle';
-const untouchedComponent = <EmptyState title={title} subtitle={subtitle} />;
+const untouchedComponent = wrapComponent(EmptyState, { title, subtitle });
 
 afterEach(cleanup);
 

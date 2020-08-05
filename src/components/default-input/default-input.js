@@ -13,11 +13,11 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { useTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Flex from '../flex/flex';
 import Text from '../text/text';
-import DefaultTheme from '../../theme/theme';
 import styles from './default-input-styles';
 
 const StyledInput = styled('input')(
@@ -25,12 +25,14 @@ const StyledInput = styled('input')(
     boxSizing: 'border-box',
     borderRadius: '4px',
     padding: '10px 0px 10px 10px',
-    color: DefaultTheme.colors.greys[1100],
-    fontSize: DefaultTheme.fontSizes.xs,
-    border: `${DefaultTheme.borders[1]} ${DefaultTheme.colors.greys[1300]}`,
     width: '100%',
     outline: 'none',
   },
+  props => ({
+    color: props.theme.colors.greys[1100],
+    fontSize: props.theme.fontSizes.xs,
+    border: `${props.theme.borders[1]} ${props.theme.colors.greys[1300]}`,
+  }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );
 
@@ -52,16 +54,15 @@ const DefaultInput = props => {
     ...rest
   } = props;
 
+  const theme = useTheme();
   const errorStyle =
-    touched && error
-      ? { border: `${DefaultTheme.borders[1]} ${DefaultTheme.colors.oranges[1100]}` }
-      : {};
+    touched && error ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` } : {};
 
   return (
     <>
       {label && (
         <Flex alignItems="center">
-          <Text style={{...labelStyle, ...styles.label}}>{label}</Text>
+          <Text style={{ ...labelStyle, ...styles.label }}>{label}</Text>
           {required && elementRequired ? elementRequired : null}
         </Flex>
       )}
@@ -71,12 +72,12 @@ const DefaultInput = props => {
           data-testid={dataTestId}
           placeholder={placeholder}
           required={required}
-          style={{...style, ...errorStyle}}
+          style={{ ...style, ...errorStyle }}
           {...rest}
           {...input}
         />
         {touched && error && (
-          <Text color={DefaultTheme.colors.oranges[1100]} fontSize={DefaultTheme.fontSizes.xs}>
+          <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
             {error}
           </Text>
         )}

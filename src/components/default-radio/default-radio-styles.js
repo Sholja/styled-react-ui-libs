@@ -9,10 +9,9 @@ const styles = {
     width: 0,
   },
   label: {
-    fontWeight: '500',
-    fontSize: Theme.fontSizes.sm,
-    lineHeight: '25px',
-    color: Theme.colors.greys[1000],
+    fontSize: Theme.fontSizes.xs,
+    lineHeight: '17px',
+    color: Theme.colors.black,
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
     overflow: 'hidden',

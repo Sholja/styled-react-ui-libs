@@ -13,39 +13,38 @@ import {
   typography,
   shadow,
 } from 'styled-system';
-
-import DefaultTheme from '../../theme/theme';
+import { useTheme } from 'emotion-theming';
 
 const StyledAlert = styled('div')(
   {
     boxSizing: 'border-box',
+    disabled: false,
+    textDecoration: 'none',
+    textAlign: 'left',
+    fontWeight: 'bold',
+    width: '100%',
   },
+  props => ({
+    borderRadius: props.theme.radii.sm,
+    border: props.theme.borders[0],
+    fontFamily: props.theme.fonts.sans,
+    color: props.theme.colors.white,
+    padding: `${props.theme.space.md} ${props.theme.space.lg}`,
+  }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );
 
-StyledAlert.defaultProps = {
-  borderRadius: DefaultTheme.radii.sm,
-  border: DefaultTheme.borders[0],
-  disabled: false,
-  fontFamily: DefaultTheme.fonts.sans,
-  btnSize: DefaultTheme.space.md,
-  textDecoration: 'none',
-  color: DefaultTheme.colors.white,
-  textAlign: 'left',
-  fontWeight: 'bold',
-  padding: `${DefaultTheme.space.md} ${DefaultTheme.space.lg}`,
-  width: '100%',
-};
+const Alert = ({ dataTestId, as = '', children, ...rest }) => {
+  const theme = useTheme();
 
-const Alert = ({ dataTestId, as = '', children, ...rest }) => (
-  <StyledAlert
+  return (<StyledAlert
     data-testid={dataTestId}
-    style={DefaultTheme.alerts[as] ? DefaultTheme.alerts[as] : DefaultTheme.alerts.info}
+    style={theme.alerts[as] ? theme.alerts[as] : theme.alerts.info}
     {...rest}
   >
     {children}
-  </StyledAlert>
-);
+  </StyledAlert>)
+};
 
 Alert.propTypes = {
   dataTestId: PropTypes.string,

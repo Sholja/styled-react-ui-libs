@@ -4,9 +4,10 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Footer from './footer';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const text = 'Testing footer component...';
-const untouchedComponent = <Footer>{text}</Footer>;
+const untouchedComponent = wrapComponent(Footer, { children: text });
 
 afterEach(cleanup);
 

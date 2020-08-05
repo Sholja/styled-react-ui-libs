@@ -14,22 +14,22 @@ import {
   shadow,
 } from 'styled-system';
 
-import DefaultTheme from '../../theme/theme';
-
 const StyledCard = styled('div')(
   {
     boxSizing: 'border-box',
   },
+  props => ({
+    borderColor: props.theme.colors.greys[200],
+    borderRadius: props.theme.radii.sm,
+    padding: props.theme.space.md,
+    boxShadow: props.theme.shadows.box,
+    background: props.theme.colors.white,
+  }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );
 
 StyledCard.defaultProps = {
   border: '0',
-  borderColor: DefaultTheme.colors.greys[200],
-  borderRadius: DefaultTheme.radii.sm,
-  padding: DefaultTheme.space.md,
-  boxShadow: DefaultTheme.shadows.box,
-  background: DefaultTheme.colors.white,
 };
 
 const Card = ({ children, ...rest }) => <StyledCard {...rest}>{children}</StyledCard>;

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SimpleModal from 'simple-react-modal';
 import { FaTimes } from 'react-icons/fa';
+import { useTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Button from '../button/button';
 import Heading from '../heading/heading';
 import styles from './modal-styles';
-import DefaultTheme from '../../theme/theme';
 
 const Modal = ({
   open,
@@ -27,13 +27,14 @@ const Modal = ({
   blockCloseOnOuterClick = false,
   ...rest
 }) => {
+  const theme = useTheme();
   const renderModalTitle = (modalTitle, modalTitleComponent) => {
     if (modalTitleComponent) {
       return modalTitleComponent;
     }
 
     return modalTitle ? (
-      <Heading as="h4" fontWeight={DefaultTheme.fontWeights.bold}>
+      <Heading as="h4" fontWeight={theme.fontWeights.bold}>
         {modalTitle}
       </Heading>
     ) : null;

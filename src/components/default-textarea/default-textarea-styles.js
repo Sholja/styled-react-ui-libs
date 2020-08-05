@@ -6,10 +6,10 @@ const styles = {
     right: '0',
   },
   label: {
-    fontWeight: '500',
-    fontSize: Theme.fontSizes.xxs,
-    lineHeight: '1.125rem',
-    color: Theme.colors.greys[1000],
+    fontSize: Theme.fontSizes.xs,
+    lineHeight: '17px',
+    color: Theme.colors.black,
+    marginRight: '4px',
   },
 };
 

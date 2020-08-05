@@ -14,28 +14,16 @@ import {
   compose,
   layout,
 } from 'styled-system';
+import { useTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Loader from '../loader/loader';
 import RenderIf from '../render-if/render-if';
-import DefaultTheme from '../../theme/theme';
 
 const buttonSize = variant({
   prop: 'btnSize',
   key: 'buttonSizes',
 });
-
-const DISABLED_STYLES = {
-  cursor: 'not-allowed',
-  color: DefaultTheme.colors.white,
-  backgroundColor: DefaultTheme.colors.greys[300],
-  boxShadow: 'none',
-  ':hover': {
-    color: DefaultTheme.colors.white,
-    backgroundColor: DefaultTheme.colors.greys[300],
-    boxShadow: 'none',
-  },
-};
 
 const StyledButton = styled(Box)(
   {
@@ -43,26 +31,26 @@ const StyledButton = styled(Box)(
     outline: 0,
     transition: '100ms',
   },
+  props => ({
+    borderRadius: props.theme.radii.sm,
+    border: props.theme.borders[0],
+  }),
   compose(borders, borderColor, boxShadow, borderRadius, typography, space, color, layout),
   buttonStyle,
   buttonSize,
-  ({ disabled }) => (disabled ? DISABLED_STYLES : {}),
 );
 
 StyledButton.defaultProps = {
   as: 'button',
-  borderRadius: DefaultTheme.radii.sm,
-  border: DefaultTheme.borders[0],
   disabled: false,
-  fontFamily: DefaultTheme.fonts.sans,
   btnSize: 'md',
   textDecoration: 'none',
   variant: 'primary',
   fontWeight: 'bold',
-  padding: `${DefaultTheme.space.xxs} ${DefaultTheme.space.md}`,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  padding: '10px',
 };
 
 const Button = ({
@@ -82,10 +70,24 @@ const Button = ({
   children,
   ...rest
 }) => {
+  const theme = useTheme();
+
+  const DISABLED_STYLES = {
+    cursor: 'not-allowed',
+    color: theme.colors.white,
+    backgroundColor: theme.colors.greys[300],
+    boxShadow: 'none',
+    ':hover': {
+      color: theme.colors.white,
+      backgroundColor: theme.colors.greys[300],
+      boxShadow: 'none',
+    },
+  };
+
   const buttonStyle = Object.assign(
     style,
-    disabled ? DISABLED_STYLES : DefaultTheme.buttons[variant] || DefaultTheme.buttons.primary,
-    DefaultTheme.buttonSizes[btnSize] || DefaultTheme.buttonSizes.md,
+    disabled ? DISABLED_STYLES : theme.buttons[variant] || theme.buttons.primary,
+    theme.buttonSizes[btnSize] || theme.buttonSizes.md,
   );
 
   return (
@@ -100,7 +102,7 @@ const Button = ({
       <RenderIf show={!hideContentWhileLoading}>{children}</RenderIf>
       <RenderIf show={showLoader}>
         <Loader
-          ml={hideContentWhileLoading ? DefaultTheme.space[0] : DefaultTheme.space.xs}
+          ml={hideContentWhileLoading ? theme.space[0] : theme.space.xs}
           spinSpeed={loaderSpinSpeed}
           trailColor="transparent"
           size={loaderSize}

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTheme } from 'emotion-theming';
 
 import Table from './table';
 import TableHead from './table-head';
@@ -8,9 +9,10 @@ import TableRow from './table-row';
 import TableHeadRow from './table-head-row';
 import TableBodyRow from './table-body-row';
 import RenderIf from '../render-if/render-if';
-import DefaultTheme from '../../theme/theme';
 
 const DynamicTable = ({ options, items = [], customTableBody, customTableBodyProps, ...rest }) => {
+  const theme = useTheme();
+
   const renderTable = item => {
     const keys = Object.keys(item);
     return keys.map((key, index) => (
@@ -20,7 +22,7 @@ const DynamicTable = ({ options, items = [], customTableBody, customTableBodyPro
   const CustomTableBody = customTableBody;
 
   return (
-    <Table backgroundColor={DefaultTheme.colors.white} {...rest}>
+    <Table backgroundColor={theme.colors.white} {...rest}>
       <TableHead>
         <TableRow>
           {options.map(({ item }, index) => (

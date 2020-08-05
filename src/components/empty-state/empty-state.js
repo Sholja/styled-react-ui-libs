@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FiInbox } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { useTheme } from 'emotion-theming';
 
 import Flex from '../flex/flex';
 import Box from '../box/box';
 import Heading from '../heading/heading';
 import Text from '../text/text';
-import Theme from '../../theme/theme';
 
 const EmptyState = ({
   title = 'No Data',
@@ -17,11 +17,12 @@ const EmptyState = ({
   linkTo = '',
   ...rest
 }) => {
+  const theme = useTheme();
   const Icon = icon;
 
   return (
     <Flex width="100%" height="40vh" alignItems="center" justifyContent="center" {...rest}>
-      <Box textAlign="center" maxWidth={['100%', '50%', '50%', '40%']} px={Theme.space.md}>
+      <Box textAlign="center" maxWidth={['100%', '50%', '50%', '40%']} px={theme.space.md}>
         {Icon ? (
           <Icon data-testid="empty-state-icon" fontSize="100px" />
         ) : (
@@ -29,7 +30,7 @@ const EmptyState = ({
         )}
         <Heading as="h2">{title}</Heading>
         {subtitle && (
-          <Text fontSize={Theme.fontSizes.sm} color={Theme.colors.greys[1100]}>
+          <Text fontSize={theme.fontSizes.sm} color={theme.colors.greys[1100]}>
             {subtitle}
           </Text>
         )}

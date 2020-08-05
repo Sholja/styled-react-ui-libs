@@ -4,9 +4,10 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Header from './header';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const text = 'Testing header component...';
-const untouchedComponent = <Header>{text}</Header>;
+const untouchedComponent = wrapComponent(Header, { children: text });
 
 afterEach(cleanup);
 

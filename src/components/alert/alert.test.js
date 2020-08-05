@@ -4,10 +4,11 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Alert from './alert';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const text = 'Testing alert component...';
 const dataTestId = 'alert-component';
-const untouchedComponent = <Alert>{text}</Alert>;
+const untouchedComponent = wrapComponent(Alert, { children: text })
 
 afterEach(cleanup);
 
@@ -23,11 +24,7 @@ it('renders component with specified text', () => {
 });
 
 it('renders success alert', () => {
-  const untouchedComponent = (
-    <Alert as="success" dataTestId={dataTestId}>
-      {text}
-    </Alert>
-  );
+  const untouchedComponent = wrapComponent(Alert, { as: 'success', dataTestId, children: text });
   const { getByTestId } = render(untouchedComponent);
   const alertComponent = getByTestId(dataTestId);
   const style = window.getComputedStyle(alertComponent);
@@ -36,11 +33,7 @@ it('renders success alert', () => {
 });
 
 it('renders danger alert', () => {
-  const untouchedComponent = (
-    <Alert as="danger" dataTestId={dataTestId}>
-      {text}
-    </Alert>
-  );
+  const untouchedComponent = wrapComponent(Alert, { as: 'danger', dataTestId, children: text });
   const { getByTestId } = render(untouchedComponent);
   const alertComponent = getByTestId(dataTestId);
   const style = window.getComputedStyle(alertComponent);
