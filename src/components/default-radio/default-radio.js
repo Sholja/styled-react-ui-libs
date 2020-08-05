@@ -13,10 +13,10 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { useTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Text from '../text/text';
-import DefaultTheme from '../../theme/theme';
 import styles from './default-radio-styles';
 import { generateRandomString } from '../../common/helpers';
 
@@ -25,11 +25,13 @@ const StyledInput = styled('input')(
     boxSizing: 'border-box',
     borderRadius: '4px',
     padding: '10px 0px 10px 10px',
-    color: DefaultTheme.colors.greys[1100],
-    fontSize: DefaultTheme.fontSizes.xs,
-    border: `${DefaultTheme.borders[1]} ${DefaultTheme.colors.greys[1300]}`,
     outline: 'none',
   },
+  props => ({
+    color: props.theme.colors.greys[1100],
+    fontSize: props.theme.fontSizes.xs,
+    border: `${props.theme.borders[1]} ${props.theme.colors.greys[1300]}`,
+  }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );
 
@@ -46,11 +48,12 @@ const DefaultInput = props => {
     label = '',
     dataTestId = '',
     checked,
-    defaultBackground = DefaultTheme.colors.greys[2000],
-    activeBackground = DefaultTheme.colors.primary,
+    defaultBackground,
+    activeBackground,
     ...rest
   } = props;
 
+  const theme = useTheme();
   const elementId = id || generateRandomString(16);
 
   return (
@@ -71,18 +74,24 @@ const DefaultInput = props => {
           justifyContent="center"
           alignItems="center"
           style={styles.replacementInput}
-          background={checked ? activeBackground : defaultBackground}
+          background={
+            checked
+              ? activeBackground || theme.colors.primary
+              : defaultBackground || theme.colors.greys[2000]
+          }
         >
           <Box
             width="30%"
             height="30%"
             borderRadius="50%"
-            background={checked ? DefaultTheme.colors.white : defaultBackground}
+            background={
+              checked ? theme.colors.white : defaultBackground || theme.colors.greys[2000]
+            }
           ></Box>
         </Box>
       </StyledLabel>
       {error && (
-        <Text color={DefaultTheme.colors.oranges[1100]} fontSize={DefaultTheme.fontSizes.xs}>
+        <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
           {error}
         </Text>
       )}

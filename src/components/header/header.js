@@ -13,34 +13,38 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { useTheme } from 'emotion-theming';
 
-import DefaultTheme from '../../theme/theme';
 import { HEADER_HEIGHT } from '../../common/constants';
 
 const StyledHeader = styled('header')(
   {
     boxSizing: 'border-box',
   },
+  props => ({
+    backgroundColor: props.theme.colors.white,
+    boxShadow: `0 1px 0 0 ${props.theme.colors.greys[1300]}`,
+    top: props.theme.space[0],
+  }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );
 
 StyledHeader.defaultProps = {
-  backgroundColor: DefaultTheme.colors.white,
   display: 'flex',
   flexWrap: 'wrap',
   width: '100%',
-  boxShadow: `0 1px 0 0 ${DefaultTheme.colors.greys[1300]}`,
-  top: DefaultTheme.space[0],
   alignItems: 'center',
   position: 'fixed',
 };
 
 const Header = ({ height = HEADER_HEIGHT, children, ...rest }) => {
+  const theme = useTheme();
+
   return (
     <StyledHeader
       height={height}
-      px={[DefaultTheme.space.sm, DefaultTheme.space.sm, DefaultTheme.space.lg]}
-      py={[DefaultTheme.space.sm, DefaultTheme.space[0], DefaultTheme.space[0]]}
+      px={[theme.space.sm, theme.space.sm, theme.space.lg]}
+      py={[theme.space.sm, theme.space[0], theme.space[0]]}
       {...rest}
     >
       {children}

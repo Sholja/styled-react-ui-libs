@@ -4,9 +4,10 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import UnorderedList from './unordered-list';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const options = ['First option', 'Second option', 'Third option'];
-const untouchedComponent = <UnorderedList options={options} />;
+const untouchedComponent = wrapComponent(UnorderedList, { options });
 
 afterEach(cleanup);
 
@@ -23,7 +24,7 @@ it('handles onClick event on options', () => {
     value = item;
   };
 
-  const untouchedComponent = <UnorderedList options={options} onClick={onClick} />;
+  const untouchedComponent = wrapComponent(UnorderedList, { options, onClick });
   const { getByText } = render(untouchedComponent);
   getByText(options[0]).click();
 

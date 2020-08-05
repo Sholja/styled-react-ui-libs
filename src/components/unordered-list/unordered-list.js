@@ -3,23 +3,21 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout } from 'styled-system';
 
-import theme from '../../theme/theme';
-
 const StyledUnorderedList = styled('ul')(
-  {
-    fontWeight: theme.fontWeights.normal,
-    lineHeight: theme.lineHeights.normal,
-    fontFamily: theme.fonts.sans,
-  },
+  {},
+  props => ({
+    fontWeight: props.theme.fontWeights.normal,
+    lineHeight: props.theme.lineHeights.normal,
+  }),
   compose(typography, space, color, layout),
 );
 
 const StyledUnorderedListItem = styled('li')(
-  {
-    fontWeight: theme.fontWeights.normal,
-    lineHeight: theme.lineHeights.normal,
-    fontFamily: theme.fonts.sans,
-  },
+  {},
+  props => ({
+    fontWeight: props.theme.fontWeights.normal,
+    lineHeight: props.theme.lineHeights.normal,
+  }),
   compose(typography, space, color, layout),
 );
 

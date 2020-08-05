@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout } from 'styled-system';
 
-import DefaultTheme from '../../theme/theme';
-
 const StyledHyperlink = styled('a')(
   {
-    margin: DefaultTheme.space[0],
-    fontWeight: DefaultTheme.fontWeights.normal,
-    lineHeight: DefaultTheme.lineHeights.normal,
-    fontFamily: DefaultTheme.fonts.sans,
     textDecoration: 'none',
   },
+  props => ({
+    margin: props.theme.space[0],
+    fontWeight: props.theme.fontWeights.normal,
+    lineHeight: props.theme.lineHeights.normal,
+  }),
   compose(typography, space, color, layout),
 );
 

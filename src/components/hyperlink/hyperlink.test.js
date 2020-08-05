@@ -4,14 +4,15 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Hyperlink from './hyperlink';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const text = 'Testing text component...';
 const dataTestId = 'text-component';
-const untouchedComponent = (
-  <Hyperlink data-testid={dataTestId} href="https://google.com">
-    {text}
-  </Hyperlink>
-);
+const untouchedComponent = wrapComponent(Hyperlink, {
+  'data-testid': dataTestId,
+  href: 'https://google.com',
+  children: text,
+});
 
 afterEach(cleanup);
 
@@ -37,12 +38,14 @@ it('triggers onClick function if passed to the component', () => {
     counter = 2;
   };
 
-  const component = (
-    <Hyperlink data-testid={dataTestId} href="#" onClick={onClick}>
-      {text}
-    </Hyperlink>
-  );
-  const { getByTestId } = render(component);
+  const untouchedComponent = wrapComponent(Hyperlink, {
+    'data-testid': dataTestId,
+    href: '#',
+    children: text,
+    onClick,
+  });
+
+  const { getByTestId } = render(untouchedComponent);
   getByTestId(dataTestId).click();
 
   expect(counter).toBe(2);

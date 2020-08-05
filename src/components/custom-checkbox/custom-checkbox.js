@@ -1,50 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IoIosCheckmark } from 'react-icons/io';
+import { useTheme } from 'emotion-theming';
 
 import Flex from '../flex/flex';
 import RenderIf from '../render-if/render-if';
 import Text from '../text/text';
-import DefaultTheme from '../../theme/theme';
 
 const CustomCheckbox = ({
   meta: { touched, error },
   active,
   onClick,
-  activeColor = DefaultTheme.colors.greens[1100],
-  inactiveColor = DefaultTheme.colors.greys[1300],
-  iconColor = DefaultTheme.colors.greens[1000],
+  activeColor,
+  inactiveColor,
+  iconColor,
   ...rest
-}) => (
-  <>
-    <Flex
-      style={{
-        cursor: onClick ? 'pointer' : 'initial',
-      }}
-      borderRadius="50%"
-      width="27px"
-      height="27px"
-      justifyContent="center"
-      alignItems="center"
-      border={active ? 'none' : `${DefaultTheme.borders[1]} ${DefaultTheme.colors.greys[1300]}`}
-      backgroundColor={active ? activeColor : inactiveColor}
-      onClick={onClick}
-      {...rest}
-    >
-      <RenderIf show={active}>
-        <IoIosCheckmark
-          data-testid="custom-checkbox"
-          style={{ color: iconColor, fontSize: DefaultTheme.fontSizes.lg }}
-        />
-      </RenderIf>
-    </Flex>
-    {touched && error && (
-      <Text color={DefaultTheme.colors.oranges[1100]} fontSize={DefaultTheme.fontSizes.xs}>
-        {error}
-      </Text>
-    )}
-  </>
-);
+}) => {
+  const theme = useTheme();
+  return (
+    <>
+      <Flex
+        style={{
+          cursor: onClick ? 'pointer' : 'initial',
+        }}
+        borderRadius="50%"
+        width="27px"
+        height="27px"
+        justifyContent="center"
+        alignItems="center"
+        border={active ? 'none' : `${theme.borders[1]} ${theme.colors.greys[1300]}`}
+        backgroundColor={
+          active
+            ? activeColor || theme.colors.greens[1100]
+            : inactiveColor || theme.colors.greys[1300]
+        }
+        onClick={onClick}
+        {...rest}
+      >
+        <RenderIf show={active}>
+          <IoIosCheckmark
+            data-testid="custom-checkbox"
+            style={{ color: iconColor || theme.colors.greens[1000], fontSize: theme.fontSizes.lg }}
+          />
+        </RenderIf>
+      </Flex>
+      {touched && error && (
+        <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+          {error}
+        </Text>
+      )}
+    </>
+  );
+};
 
 CustomCheckbox.propTypes = {
   active: PropTypes.bool.isRequired,

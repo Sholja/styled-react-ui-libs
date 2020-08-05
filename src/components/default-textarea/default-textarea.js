@@ -13,10 +13,11 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { useTheme } from 'emotion-theming';
 
 import Box from '../box/box';
+import Flex from '../flex/flex';
 import Text from '../text/text';
-import DefaultTheme from '../../theme/theme';
 import styles from './default-textarea-styles';
 import { getArrayOfValues } from './default-textarea-helper';
 
@@ -25,12 +26,14 @@ const StyledTextarea = styled('textarea')(
     boxSizing: 'border-box',
     borderRadius: '4px',
     padding: '10px 0px 10px 10px',
-    color: DefaultTheme.colors.greys[1100],
-    fontSize: DefaultTheme.fontSizes.xs,
-    border: `${DefaultTheme.borders[1]} ${DefaultTheme.colors.greys[1300]}`,
     width: '100%',
     outline: 'none',
   },
+  props => ({
+    color: props.theme.colors.greys[1100],
+    fontSize: props.theme.fontSizes.xs,
+    border: `${props.theme.borders[1]} ${props.theme.colors.greys[1300]}`,
+  }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );
 
@@ -50,12 +53,16 @@ const DefaultTextarea = props => {
     rightElClick,
     rightElStyle = {},
     rightElementShouldRender = false,
+    required = false,
+    elementRequired,
+    labelStyle = {},
     ...rest
   } = props;
 
+  const theme = useTheme();
   const errorStyle =
     touched && error
-      ? { border: `${DefaultTheme.borders[1]} ${DefaultTheme.colors.oranges[1100]}` }
+      ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` }
       : {};
 
   const handleKeyPressed = event => {
@@ -82,7 +89,12 @@ const DefaultTextarea = props => {
 
   return (
     <>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && (
+        <Flex alignItems="center">
+          <Text style={{ ...labelStyle, ...styles.label }}>{label}</Text>
+          {required && elementRequired ? elementRequired : null}
+        </Flex>
+      )}
       <Box marginTop="8px" position="relative">
         <StyledTextarea
           id={id || name}
@@ -94,7 +106,7 @@ const DefaultTextarea = props => {
         />
         {rightEl && rightElementShouldRender && renderRightElement(rightEl)}
       </Box>
-      {touched && error && <Text color={DefaultTheme.colors.oranges[1100]} fontSize={DefaultTheme.fontSizes.xs}>{error}</Text>}
+      {touched && error && <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>{error}</Text>}
     </>
   );
 };
@@ -113,6 +125,9 @@ DefaultTextarea.propTypes = {
   rightElClick: PropTypes.func,
   rightElStyle: PropTypes.object,
   rightElementShouldRender: PropTypes.bool,
+  required: PropTypes.bool,
+  elementRequired: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  labelStyle: PropTypes.object,
 };
 
 export default DefaultTextarea;

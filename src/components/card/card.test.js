@@ -4,9 +4,10 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Card from './card';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const text = 'Testing card component...';
-const untouchedComponent = <Card>{text}</Card>;
+const untouchedComponent = wrapComponent(Card, { children: text });
 
 afterEach(cleanup);
 

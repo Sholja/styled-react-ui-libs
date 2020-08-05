@@ -16,7 +16,6 @@ const StyledHeading = styled(Box)({}, level, typography, space, color, compose, 
 StyledHeading.defaultProps = {
   as: 'h1',
   fontWeight: Theme.fontWeights.bold,
-  fontFamily: Theme.fonts.sans,
 };
 
 const Heading = props => <StyledHeading {...props} />;

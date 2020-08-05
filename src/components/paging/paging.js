@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
+import { useTheme } from 'emotion-theming';
 
 import PagingItem from './paging-item';
 import Box from '../box/box';
 import Flex from '../flex/flex';
-import DefaultTheme from '../../theme/theme';
 
 const Paging = ({ min, max, page, onChange, ...rest }) => {
+  const theme = useTheme();
+
   const renderPagingItems = () => {
     let maxElements = page + 2 > max ? max : page + 2;
     let minElements = page - 2 < min ? min : page - 2;
@@ -30,12 +32,12 @@ const Paging = ({ min, max, page, onChange, ...rest }) => {
         paddingBottom="4px"
         boxShadow="0 1px 2px 0 rgba(0, 0, 0, 0.08)"
         borderRadius="4px"
-        border={`${DefaultTheme.borders[1]} ${DefaultTheme.colors.greys[1800]}`}
-        backgroundColor={DefaultTheme.colors.white}
+        border={`${theme.borders[1]} ${theme.colors.greys[1800]}`}
+        backgroundColor={theme.colors.white}
       >
         <Box
           borderRight={
-            page === min ? 'none' : `${DefaultTheme.borders[1]} ${DefaultTheme.colors.greys[1300]}`
+            page === min ? 'none' : `${theme.borders[1]} ${theme.colors.greys[1300]}`
           }
           display="flex"
           alignItems="center"
@@ -49,12 +51,12 @@ const Paging = ({ min, max, page, onChange, ...rest }) => {
           onClick={() => onChange(page - 1)}
           data-testid="pager-previous"
         >
-          <IoMdArrowDropleft style={{ color: DefaultTheme.colors.greys[1000] }} />
+          <IoMdArrowDropleft style={{ color: theme.colors.greys[1000] }} />
         </Box>
         {renderPagingItems()}
         <Box
           borderLeft={
-            page === max ? 'none' : `${DefaultTheme.borders[1]} ${DefaultTheme.colors.greys[1300]}`
+            page === max ? 'none' : `${theme.borders[1]} ${theme.colors.greys[1300]}`
           }
           display="flex"
           alignItems="center"
@@ -68,7 +70,7 @@ const Paging = ({ min, max, page, onChange, ...rest }) => {
           onClick={() => onChange(page + 1)}
           data-testid="pager-next"
         >
-          <IoMdArrowDropright style={{ color: DefaultTheme.colors.greys[1000] }} />
+          <IoMdArrowDropright style={{ color: theme.colors.greys[1000] }} />
         </Box>
       </Flex>
     </Box>

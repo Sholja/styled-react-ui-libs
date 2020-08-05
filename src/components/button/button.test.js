@@ -4,10 +4,11 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Button from './button';
+import { wrapComponent } from '../../common/testing-helpers';
 
 const text = 'Testing Button component...';
 const dataTestId = 'button-component';
-const untouchedComponent = <Button>{text}</Button>;
+const untouchedComponent = wrapComponent(Button, { children: text });
 
 afterEach(cleanup);
 
@@ -29,11 +30,8 @@ it('triggers onClick function passed to the button once button is clicked', () =
     number = 4;
   };
 
-  const untouchedComponent = (
-    <Button onClick={changeNumber} dataTestId={dataTestId}>
-      {text}
-    </Button>
-  );
+  const untouchedComponent = wrapComponent(Button, { children: text, onClick: changeNumber, dataTestId });
+
   const { getByTestId } = render(untouchedComponent);
   getByTestId(dataTestId).click();
 
