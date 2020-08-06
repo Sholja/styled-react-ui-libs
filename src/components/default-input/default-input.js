@@ -13,7 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Flex from '../flex/flex';
@@ -99,4 +99,4 @@ DefaultInput.propTypes = {
   labelStyle: PropTypes.object,
 };
 
-export default DefaultInput;
+export default withTheme(DefaultInput);

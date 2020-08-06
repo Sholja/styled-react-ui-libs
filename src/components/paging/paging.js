@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import PagingItem from './paging-item';
 import Box from '../box/box';
@@ -84,4 +84,4 @@ Paging.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default Paging;
+export default withTheme(Paging);

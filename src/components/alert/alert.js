@@ -13,7 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 const StyledAlert = styled('div')(
   {
@@ -51,4 +51,4 @@ Alert.propTypes = {
   as: PropTypes.string,
 };
 
-export default Alert;
+export default withTheme(Alert);

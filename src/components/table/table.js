@@ -11,7 +11,7 @@ import {
   background,
   shadow,
 } from 'styled-system';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 
@@ -47,4 +47,4 @@ Table.propTypes = {
   stripped: PropTypes.bool,
 };
 
-export default Table;
+export default withTheme(Table);

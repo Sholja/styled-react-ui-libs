@@ -12,6 +12,7 @@ import {
   border,
   typography,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledContainer = styled('div')(
   {
@@ -43,4 +44,4 @@ Container.propTypes = {
   dataTestId: PropTypes.string,
 };
 
-export default Container;
+export default withTheme(Container);

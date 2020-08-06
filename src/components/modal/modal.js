@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SimpleModal from 'simple-react-modal';
 import { FaTimes } from 'react-icons/fa';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Button from '../button/button';
@@ -92,4 +92,4 @@ Modal.propTypes = {
   blockCloseOnOuterClick: PropTypes.bool,
 };
 
-export default Modal;
+export default withTheme(Modal);

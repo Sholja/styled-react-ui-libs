@@ -13,7 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import { FOOTER_HEIGHT } from '../../common/constants';
 
@@ -57,4 +57,4 @@ Footer.propTypes = {
   isFloatingFooter: PropTypes.bool,
 };
 
-export default Footer;
+export default withTheme(Footer);

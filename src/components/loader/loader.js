@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import { LOADER_OPTIONS } from '../../common/constants';
@@ -49,4 +50,4 @@ Loader.propTypes = {
   spinSpeed: PropTypes.number,
 };
 
-export default Loader;
+export default withTheme(Loader);

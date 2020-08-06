@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FiInbox } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import Flex from '../flex/flex';
 import Box from '../box/box';
@@ -50,4 +50,4 @@ EmptyState.propTypes = {
   icon: PropTypes.element,
 };
 
-export default EmptyState;
+export default withTheme(EmptyState);

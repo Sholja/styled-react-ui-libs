@@ -13,6 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledCard = styled('div')(
   {
@@ -39,4 +40,4 @@ Card.propTypes = {
   dataTestId: PropTypes.string,
 };
 
-export default Card;
+export default withTheme(Card);

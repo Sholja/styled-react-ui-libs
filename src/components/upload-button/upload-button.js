@@ -13,6 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 import Button from '../button/button';
 import styles from './upload-button-style';
@@ -106,4 +107,4 @@ UploadButton.propTypes = {
   loaderSpinSpeed: PropTypes.number,
 };
 
-export default UploadButton;
+export default withTheme(UploadButton);

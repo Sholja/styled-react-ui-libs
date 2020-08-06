@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import Table from './table';
 import TableHead from './table-head';
@@ -50,4 +50,4 @@ DynamicTable.propTypes = {
   customTableBody: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 };
 
-export default DynamicTable;
+export default withTheme(DynamicTable);

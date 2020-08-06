@@ -12,6 +12,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 import DefaultTheme from '../../theme/theme';
 
@@ -43,4 +44,4 @@ const CodeSnippet = ({ children, ...rest }) => (
   </StyledPre>
 );
 
-export default CodeSnippet;
+export default withTheme(CodeSnippet);

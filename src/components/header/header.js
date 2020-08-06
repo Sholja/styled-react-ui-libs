@@ -13,7 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import { HEADER_HEIGHT } from '../../common/constants';
 
@@ -56,4 +56,4 @@ Header.propTypes = {
   height: PropTypes.string,
 };
 
-export default Header;
+export default withTheme(Header);
