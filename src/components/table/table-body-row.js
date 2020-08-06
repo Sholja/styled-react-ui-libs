@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout, border, background } from 'styled-system';
 import { withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 const StyledTableBodyRow = styled('td')(
   {
@@ -9,11 +10,11 @@ const StyledTableBodyRow = styled('td')(
     textAlign: 'left',
   },
   props => ({
-    fontWeight: props.theme.fontWeights.normal,
-    lineHeight: props.theme.lineHeights.normal,
-    color: props.theme.colors.greys[1100],
-    fontSize: props.theme.fontSizes.xs,
-    borderTop: `${props.theme.borders[1]} ${props.theme.colors.greys[1300]}`,
+    fontWeight: themeGet('fontWeights.normal')(props),
+    lineHeight: themeGet('lineHeights.normal')(props),
+    color: themeGet('colors.greys.1100')(props),
+    fontSize: themeGet('fontSizes.xs')(props),
+    borderTop: `${themeGet('borders.1')(props)} ${themeGet('colors.greys.1300')(props)}`,
   }),
   compose(typography, space, color, layout, border, background),
 );

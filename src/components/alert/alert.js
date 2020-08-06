@@ -14,6 +14,7 @@ import {
   shadow,
 } from 'styled-system';
 import { useTheme, withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 const StyledAlert = styled('div')(
   {
@@ -25,11 +26,11 @@ const StyledAlert = styled('div')(
     width: '100%',
   },
   props => ({
-    borderRadius: props.theme.radii.sm,
-    border: props.theme.borders[0],
-    fontFamily: props.theme.fonts.sans,
-    color: props.theme.colors.white,
-    padding: `${props.theme.space.md} ${props.theme.space.lg}`,
+    borderRadius: themeGet('radii.sm')(props),
+    border: themeGet('borders.0')(props),
+    fontFamily: themeGet('fonts.sans')(props),
+    color: themeGet('colors.white')(props),
+    padding: `${themeGet('space.md')(props)} ${themeGet('space.lg')(props)}`,
   }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );

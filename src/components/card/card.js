@@ -14,17 +14,18 @@ import {
   shadow,
 } from 'styled-system';
 import { withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 const StyledCard = styled('div')(
   {
     boxSizing: 'border-box',
   },
   props => ({
-    borderColor: props.theme.colors.greys[200],
-    borderRadius: props.theme.radii.sm,
-    padding: props.theme.space.md,
-    boxShadow: props.theme.shadows.box,
-    background: props.theme.colors.white,
+    borderColor: themeGet('colors.greys.200')(props),
+    borderRadius: themeGet('radii.sm')(props),
+    padding: themeGet('space.md')(props),
+    boxShadow: themeGet('shadows.box')(props),
+    background: themeGet('colors.white')(props),
   }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );

@@ -15,6 +15,7 @@ import {
   layout,
 } from 'styled-system';
 import { useTheme, withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 import Box from '../box/box';
 import Loader from '../loader/loader';
@@ -32,8 +33,8 @@ const StyledButton = styled(Box)(
     transition: '100ms',
   },
   props => ({
-    borderRadius: props.theme.radii.sm,
-    border: props.theme.borders[0],
+    borderRadius: themeGet('radii.sm')(props),
+    border: themeGet('borders.0')(props),
   }),
   compose(borders, borderColor, boxShadow, borderRadius, typography, space, color, layout),
   buttonStyle,
