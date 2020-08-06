@@ -13,6 +13,7 @@ import {
   border,
   typography,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledFlex = styled('div')(
   {
@@ -28,4 +29,4 @@ Flex.propTypes = {
   className: PropTypes.string,
 };
 
-export default Flex;
+export default withTheme(Flex);

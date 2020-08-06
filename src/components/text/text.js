@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledText = styled('p')(
   {
@@ -17,4 +18,4 @@ const Text = ({ children, ...rest }) => {
   return <StyledText {...rest}>{children}</StyledText>;
 };
 
-export default Text;
+export default withTheme(Text);

@@ -13,7 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Text from '../text/text';
@@ -110,4 +110,4 @@ DefaultInput.propTypes = {
   checked: PropTypes.bool,
 };
 
-export default DefaultInput;
+export default withTheme(DefaultInput);

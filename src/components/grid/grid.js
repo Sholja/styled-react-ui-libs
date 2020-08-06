@@ -13,6 +13,7 @@ import {
   border,
   flexbox,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledGrid = styled('div')(
   {
@@ -33,4 +34,4 @@ Grid.propTypes = {
   className: PropTypes.string,
 };
 
-export default Grid;
+export default withTheme(Grid);

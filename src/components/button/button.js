@@ -14,7 +14,7 @@ import {
   compose,
   layout,
 } from 'styled-system';
-import { useTheme } from 'emotion-theming';
+import { useTheme, withTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Loader from '../loader/loader';
@@ -128,4 +128,4 @@ Button.propTypes = {
   style: PropTypes.object,
 };
 
-export default Button;
+export default withTheme(Button);

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledUnorderedList = styled('ul')(
   {},
@@ -50,4 +51,4 @@ UnorderedList.propTypes = {
   dataTestId: PropTypes.string,
 };
 
-export default UnorderedList;
+export default withTheme(UnorderedList);

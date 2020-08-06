@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout, border, background } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledTableRow = styled('tr')(
   {},
@@ -13,4 +14,4 @@ const StyledTableRow = styled('tr')(
 
 const TableRow = ({ children, ...rest }) => <StyledTableRow {...rest}>{children}</StyledTableRow>;
 
-export default TableRow;
+export default withTheme(TableRow);

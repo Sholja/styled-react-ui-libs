@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledHyperlink = styled('a')(
   {
@@ -28,4 +29,4 @@ Hyperlink.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default Hyperlink;
+export default withTheme(Hyperlink);

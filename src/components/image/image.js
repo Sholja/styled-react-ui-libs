@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { space, background, compose, position } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledImage = styled('img')(
   {
@@ -18,4 +19,4 @@ Image.propTypes = {
   alt: PropTypes.string.isRequired,
 };
 
-export default Image;
+export default withTheme(Image);

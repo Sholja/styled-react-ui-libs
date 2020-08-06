@@ -13,6 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledBox = styled('div')(
   {
@@ -28,4 +29,4 @@ Box.propTypes = {
   dataTestId: PropTypes.string,
 };
 
-export default Box;
+export default withTheme(Box);

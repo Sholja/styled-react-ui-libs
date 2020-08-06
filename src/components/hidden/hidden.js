@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTheme } from 'emotion-theming';
 
 import { useWindowSize } from '../../common/hooks';
 import { isHidden } from './hidden-helpers';
@@ -43,4 +44,4 @@ Hidden.propTypes = {
   sizeDown: PropTypes.number,
 };
 
-export default Hidden;
+export default withTheme(Hidden);

@@ -11,6 +11,7 @@ import {
   flexbox,
   border,
 } from 'styled-system';
+import { withTheme } from 'emotion-theming';
 
 const StyledGridItem = styled('div')(
   {
@@ -22,4 +23,4 @@ const StyledGridItem = styled('div')(
 
 const GridItem = ({ children, ...rest }) => <StyledGridItem {...rest}>{children}</StyledGridItem>;
 
-export default GridItem;
+export default withTheme(GridItem);

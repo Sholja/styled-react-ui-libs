@@ -6,6 +6,7 @@ import { useTheme } from 'emotion-theming';
 import Flex from '../flex/flex';
 import RenderIf from '../render-if/render-if';
 import Text from '../text/text';
+import { withTheme } from 'emotion-theming';
 
 const CustomCheckbox = ({
   meta: { touched, error },
@@ -61,4 +62,4 @@ CustomCheckbox.propTypes = {
   iconColor: PropTypes.string,
 };
 
-export default CustomCheckbox;
+export default withTheme(CustomCheckbox);
