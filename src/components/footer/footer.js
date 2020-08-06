@@ -14,6 +14,7 @@ import {
   shadow,
 } from 'styled-system';
 import { useTheme, withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 import { FOOTER_HEIGHT } from '../../common/constants';
 
@@ -22,9 +23,9 @@ const StyledFooter = styled('footer')(
     boxSizing: 'border-box',
   },
   props => ({
-    backgroundColor: props.theme.colors.white,
-    boxShadow: `0 1px 0 0 ${props.theme.colors.greys[1300]}`,
-    bottom: props.theme.space[0],
+    backgroundColor: themeGet('colors.white')(props),
+    boxShadow: `0 1px 0 0 ${themeGet('colors.greys.1300')(props)}`,
+    bottom: themeGet('space.0')(props),
   }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );

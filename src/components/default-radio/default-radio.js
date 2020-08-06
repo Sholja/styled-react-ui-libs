@@ -14,6 +14,7 @@ import {
   shadow,
 } from 'styled-system';
 import { useTheme, withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 import Box from '../box/box';
 import Text from '../text/text';
@@ -28,9 +29,9 @@ const StyledInput = styled('input')(
     outline: 'none',
   },
   props => ({
-    color: props.theme.colors.greys[1100],
-    fontSize: props.theme.fontSizes.xs,
-    border: `${props.theme.borders[1]} ${props.theme.colors.greys[1300]}`,
+    color: themeGet('colors.greys.1100')(props),
+    fontSize: themeGet('fontSizes.xs')(props),
+    border: `${themeGet('borders.1')(props)} ${themeGet('colors.greys.1300')(props)}`,
   }),
   compose(space, layout, color, flexbox, background, position, border, typography, shadow),
 );

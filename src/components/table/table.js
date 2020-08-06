@@ -12,6 +12,7 @@ import {
   shadow,
 } from 'styled-system';
 import { useTheme, withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 import Box from '../box/box';
 
@@ -21,8 +22,8 @@ const StyledTable = styled('table')(
     boxShadow: '0 1px 0 0 #eaedf3',
   },
   props => ({
-    fontWeight: props.theme.fontWeights.normal,
-    lineHeight: props.theme.lineHeights.normal,
+    fontWeight: themeGet('fontWeights.normal')(props),
+    lineHeight: themeGet('lineHeights.normal')(props),
   }),
   compose(typography, space, color, layout, border, background, shadow),
 );

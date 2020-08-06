@@ -1,6 +1,6 @@
 {
   "name": "styled-react-ui-libs",
-  "version": "0.2.1",
+  "version": "0.2.6",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "@emotion/styled": "^10.0.27",
+    "@styled-system/theme-get": "^5.1.2",
     "emotion-theming": "^10.0.27",
     "polished": "^3.4.4",
     "react-icons": "^3.9.0",

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { typography, space, color, compose, layout, border, background } from 'styled-system';
 import { withTheme } from 'emotion-theming';
+import { themeGet } from '@styled-system/theme-get';
 
 const StyledTableHeadRow = styled('th')(
   {
@@ -9,10 +10,10 @@ const StyledTableHeadRow = styled('th')(
     textAlign: 'left',
   },
   props => ({
-    fontWeight: props.theme.fontWeights.normal,
-    lineHeight: props.theme.lineHeights.normal,
-    color: props.theme.colors.greys[1000],
-    fontSize: props.theme.fontSizes.xxs,
+    fontWeight: themeGet('fontWeights.normal')(props),
+    lineHeight: themeGet('lineHeights.normal')(props),
+    color: themeGet('colors.greys.1000')(props),
+    fontSize: themeGet('fontSizes.xxs')(props),
   }),
   compose(typography, space, color, layout, border, background),
 );
