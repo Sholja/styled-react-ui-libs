@@ -25,6 +25,7 @@ const Modal = ({
   contentStyles = {},
   hideCloseButton = false,
   blockCloseOnOuterClick = false,
+  closeButtonStyles = {},
   ...rest
 }) => {
   const theme = useTheme();
@@ -58,7 +59,9 @@ const Modal = ({
           style={titleStyles}
         >
           {renderModalTitle(title, titleComponent)}
-          {!disabled && !hideCloseButton && <FaTimes onClick={handleClose} style={styles.close} />}
+          {!disabled && !hideCloseButton && (
+            <FaTimes onClick={handleClose} style={{ ...styles.close, ...closeButtonStyles }} />
+          )}
         </Box>
         <Box p="20px" style={contentStyles}>
           {children}
@@ -90,6 +93,7 @@ Modal.propTypes = {
   contentStyles: PropTypes.object,
   hideCloseButton: PropTypes.bool,
   blockCloseOnOuterClick: PropTypes.bool,
+  closeButtonStyles: PropTypes.object,
 };
 
 export default withTheme(Modal);
