@@ -46,7 +46,7 @@
     "@storybook/addon-storyshots": "^5.2.5",
     "@storybook/addon-viewport": "^5.2.5",
     "@storybook/react": "^5.2.5",
-    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^9.3.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.23",
