@@ -45,7 +45,7 @@
     "@storybook/addon-notes": "^5.3.18",
     "@storybook/addon-storyshots": "^5.2.5",
     "@storybook/addon-viewport": "^5.2.5",
-    "@storybook/react": "^5.2.5",
+    "@storybook/react": "^5.3.19",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.3.0",
     "babel-loader": "^8.0.6",
