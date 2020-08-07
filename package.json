@@ -50,7 +50,7 @@
     "@testing-library/react": "^9.3.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.23",
-    "cross-env": "^7.0.0",
+    "cross-env": "^7.0.2",
     "husky": "^4.2.3",
     "inquirer": "^7.0.0",
     "jest-dom": "^3.4.0",
