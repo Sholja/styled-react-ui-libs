@@ -50,7 +50,7 @@ const Modal = ({
       closeOnOuterClick={disabled || blockCloseOnOuterClick ? false : true}
       {...rest}
     >
-      <Box style={Object.assign(styles.modal, modalStyles)} minWidth={minWidth} maxWidth={maxWidth}>
+      <Box style={{ ...styles.modal, ...modalStyles }} minWidth={minWidth} maxWidth={maxWidth}>
         <Box
           display="flex"
           pl="20px"
