@@ -7,6 +7,10 @@ export const baseColors = {
   freshwater: '#00a9e0',
   estuarine: '#00749a',
 
+  blacks: {
+    100: '#363636',
+  },
+
   grey: '#797979',
   greys: {
     100: '#F7FAFC',
@@ -30,6 +34,7 @@ export const baseColors = {
     1900: '#bcbcbc',
     2000: '#eeeeee',
     2100: '#f6f8fa',
+    2200: '#8C97A1',
 
     text: '#4a4a4a',
     header: '#9b9b9b',
@@ -62,7 +67,7 @@ export const baseColors = {
     700: '#c53030',
     800: '#9b2c2c',
     900: '#742a2a',
-    1000: '#d44c4c'
+    1000: '#d44c4c',
   },
 
   green: 'hsla(104, 68%, 42%, 1.00)',
@@ -111,6 +116,7 @@ export const baseColors = {
 
 const colors = {
   black: baseColors.black,
+  blacks: baseColors.blacks,
   white: baseColors.white,
   text: baseColors.greys.text,
   code: baseColors.code,
