@@ -51,26 +51,22 @@ it('activates correct tab on a tab click', () => {
     {
       id: 'admin',
       title: 'Admin',
-      onClick: onChange,
     },
     {
       id: 'user',
       title: 'Regular User',
-      onClick: onChange,
     },
     {
       id: 'super-user',
       title: 'Super User',
-      onClick: onChange,
     },
     {
       id: 'manager',
       title: 'Manager',
-      onClick: onChange,
     },
   ];
 
-  const untouchedComponent = wrapComponent(Tabs, { tabs: tabItems, active: activeItem });
+  const untouchedComponent = wrapComponent(Tabs, { tabs: tabItems, active: activeItem, onClick: onChange });
   const { getByTestId } = render(untouchedComponent);
 
   getByTestId(`tab-item-manager`).click();

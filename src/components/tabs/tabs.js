@@ -10,6 +10,7 @@ import Text from '../text/text';
 const Tabs = ({
   tabs = [],
   active,
+  onClick,
   gap = '30px',
   activeTextColor,
   inactiveTextColor,
@@ -39,7 +40,7 @@ const Tabs = ({
       {tabs.map((item, index) => (
         <Box
           paddingRight={index !== tabs.length - 1 ? gap : '0px'}
-          onClick={() => onSingleItemClick(item.id, item.onClick)}
+          onClick={() => onSingleItemClick(item.id, onClick)}
           data-testid={`tab-item-${item.id}`}
           style={{ ...{ cursor: 'pointer' }, ...tabItemStyle }}
         >
@@ -81,10 +82,17 @@ Tabs.propTypes = {
     PropTypes.shape({
       id: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
       title: PropTypes.string.isRequired,
-      onClick: PropTypes.func,
     }),
   ).isRequired,
   active: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+  onClick: PropTypes.func,
+  gap: PropTypes.string,
+  activeTextColor: PropTypes.string,
+  inactiveTextColor: PropTypes.string,
+  textStyle: PropTypes.object,
+  tabItemStyle: PropTypes.object,
+  activeElement: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  activeElementBackground: PropTypes.string,
 };
 
 export default withTheme(Tabs);
