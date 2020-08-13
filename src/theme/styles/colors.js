@@ -6,6 +6,7 @@ export const baseColors = {
   saltwater: '#10bcc3',
   freshwater: '#00a9e0',
   estuarine: '#00749a',
+  transparent: 'transparent',
 
   blacks: {
     100: '#363636',
@@ -139,6 +140,8 @@ const colors = {
   success: baseColors.green,
   danger: baseColors.red,
   warning: baseColors.orange,
+
+  transparent: baseColors.transparent,
 };
 
 export default colors;
