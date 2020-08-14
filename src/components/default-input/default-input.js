@@ -52,12 +52,15 @@ const DefaultInput = props => {
       outline: 'none',
     },
     labelStyle = {},
+    readOnly = false,
+    disabled = false,
     ...rest
   } = props;
 
   const theme = useTheme();
   const errorStyle =
     touched && error ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` } : {};
+  const readOnlyStyle = readOnly ? { background: theme.colors.disabled } : {};
 
   return (
     <>
@@ -73,7 +76,8 @@ const DefaultInput = props => {
           data-testid={dataTestId}
           placeholder={placeholder}
           required={required}
-          style={{ ...style, ...errorStyle }}
+          disabled={disabled || readOnly}
+          style={{ ...style, ...errorStyle, ...readOnlyStyle }}
           {...rest}
           {...input}
         />
@@ -98,6 +102,8 @@ DefaultInput.propTypes = {
   required: PropTypes.bool,
   elementRequired: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   labelStyle: PropTypes.object,
+  readOnly: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default withTheme(DefaultInput);

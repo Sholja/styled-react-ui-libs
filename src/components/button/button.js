@@ -85,11 +85,11 @@ const Button = ({
     },
   };
 
-  const buttonStyle = Object.assign(
-    style,
-    disabled ? DISABLED_STYLES : theme.buttons[variant] || theme.buttons.primary,
-    theme.buttonSizes[btnSize] || theme.buttonSizes.md,
-  );
+  const disabledStyle = disabled
+    ? DISABLED_STYLES
+    : theme.buttons[variant] || theme.buttons.primary;
+  const btnSizeStyle = theme.buttonSizes[btnSize] || theme.buttonSizes.md;
+  const buttonStyle = { ...style, ...disabledStyle, ...btnSizeStyle };
 
   return (
     <StyledButton
