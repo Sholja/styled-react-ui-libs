@@ -14,32 +14,26 @@ const tabs = [
   {
     id: 'admin',
     title: 'Admin',
-    onClick: onChange,
   },
   {
     id: 'user',
     title: 'Regular User',
-    onClick: onChange,
   },
   {
     id: 'super-user',
     title: 'Super User',
-    onClick: onChange,
   },
   {
     id: 'manager',
     title: 'Manager',
-    onClick: onChange,
   },
   {
     id: 'talent-scout',
     title: 'Talent Scout',
-    onClick: onChange,
   },
   {
     id: 'trainer',
     title: 'Official Trainer',
-    onClick: onChange,
   },
 ];
 
@@ -52,7 +46,7 @@ storiesOf('Tabs', module).add(
   () => (
     <>
       <State store={store}>
-        <Tabs tabs={tabs} active={store.state.active} gap="64px" />
+        <Tabs tabs={tabs} active={store.state.active} onClick={onChange} gap="64px" />
         <CodeSnippet>{`<Tabs tabs={tabs} active={active} />`}</CodeSnippet>
       </State>
     </>
