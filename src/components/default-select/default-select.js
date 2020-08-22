@@ -13,6 +13,7 @@ import {
   typography,
   shadow,
 } from 'styled-system';
+import { IoIosArrowDown } from 'react-icons/io';
 import { useTheme, withTheme } from 'emotion-theming';
 import { themeGet } from '@styled-system/theme-get';
 
@@ -59,6 +60,8 @@ const DefaultSelect = props => {
     labelStyle = {},
     required = false,
     elementRequired,
+    arrowElement,
+    arrowStyles = {},
     ...rest
   } = props;
 
@@ -66,7 +69,7 @@ const DefaultSelect = props => {
   const errorStyle =
     touched && error ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` } : {};
 
-  const selectStyles = Object.assign(style, styles.select, errorStyle);
+  const selectStyles = { ...styles.select, ...errorStyle, ...style };
 
   return (
     <>
@@ -97,6 +100,13 @@ const DefaultSelect = props => {
             </StyledOption>
           ))}
         </StyledSelect>
+        <Box
+          position="absolute"
+          right="10px"
+          style={{ ...{ transform: 'translateY(-135%)', cursor: 'pointer' }, arrowStyles }}
+        >
+          {arrowElement ? arrowElement : <IoIosArrowDown />}
+        </Box>
         {touched && error && (
           <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
             {error}
@@ -124,6 +134,8 @@ DefaultSelect.propTypes = {
   required: PropTypes.bool,
   elementRequired: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   labelStyle: PropTypes.object,
+  arrowElement: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  arrowStyles: PropTypes.object,
 };
 
 export default withTheme(DefaultSelect);
