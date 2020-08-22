@@ -10,6 +10,7 @@ export { default as Card } from './card/card';
 export { default as CodeSnippet } from './code-snippet/code-snippet';
 export { default as Container } from './container/container';
 export { default as CustomCheckbox } from './custom-checkbox/custom-checkbox';
+export { default as DefaultCheckbox } from './default-checkbox/default-checkbox';
 export { default as DefaultInput } from './default-input/default-input.js';
 export { default as DefaultRadio } from './default-radio/default-radio';
 export { default as DefaultSelect } from './default-select/default-select';
@@ -37,6 +38,7 @@ export {
   TableBodyRow,
   DynamicTable,
 } from './table';
+export { default as Tabs } from './tabs/tabs';
 export { default as Text } from './text/text';
 export { default as UnorderedList } from './unordered-list/unordered-list';
 export { default as UploadButton } from './upload-button/upload-button';
