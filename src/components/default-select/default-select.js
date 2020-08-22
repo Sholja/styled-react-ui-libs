@@ -103,7 +103,7 @@ const DefaultSelect = props => {
         <Box
           position="absolute"
           right="10px"
-          style={{ ...{ transform: 'translateY(-135%)', cursor: 'pointer' }, arrowStyles }}
+          style={{ ...{ transform: 'translateY(-135%)', cursor: 'pointer' }, ...arrowStyles }}
         >
           {arrowElement ? arrowElement : <IoIosArrowDown />}
         </Box>
