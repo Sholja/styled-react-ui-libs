@@ -52,6 +52,7 @@ const DefaultInput = props => {
     defaultBackground,
     activeBackground,
     fakeRadioStyles = {},
+    replacementInputStyles = {},
     labelStyle = {},
     ...rest
   } = props;
@@ -76,7 +77,7 @@ const DefaultInput = props => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={styles.replacementInput}
+          style={{...styles.replacementInput, replacementInputStyles}}
           background={
             checked
               ? activeBackground || theme.colors.primary
@@ -113,6 +114,7 @@ DefaultInput.propTypes = {
   style: PropTypes.object,
   checked: PropTypes.bool,
   fakeRadioStyles: PropTypes.object,
+  replacementInputStyles: PropTypes.object,
   labelStyle: PropTypes.object,
 };
 
