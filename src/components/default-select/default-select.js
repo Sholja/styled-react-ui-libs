@@ -69,7 +69,7 @@ const DefaultSelect = props => {
   const errorStyle =
     touched && error ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` } : {};
 
-  const selectStyles = { ...styles.select, ...errorStyle, ...style };
+  const selectStyles = { ...styles.select, ...style, ...errorStyle };
 
   return (
     <>
