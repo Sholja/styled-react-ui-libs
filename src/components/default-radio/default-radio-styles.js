@@ -10,7 +10,7 @@ const styles = {
   },
   label: {
     fontSize: Theme.fontSizes.xs,
-    lineHeight: '17px',
+    lineHeight: '25px',
     color: Theme.colors.black,
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',

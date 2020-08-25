@@ -51,6 +51,8 @@ const DefaultInput = props => {
     checked,
     defaultBackground,
     activeBackground,
+    fakeRadioStyles = {},
+    labelStyle = {},
     ...rest
   } = props;
 
@@ -59,7 +61,7 @@ const DefaultInput = props => {
 
   return (
     <>
-      <StyledLabel htmlFor={elementId} style={styles.label}>
+      <StyledLabel htmlFor={elementId} style={{ ...styles.label, labelStyle }}>
         {label}
         <StyledInput
           type="radio"
@@ -88,6 +90,7 @@ const DefaultInput = props => {
             background={
               checked ? theme.colors.white : defaultBackground || theme.colors.greys[2000]
             }
+            style={fakeRadioStyles}
           ></Box>
         </Box>
       </StyledLabel>
@@ -109,6 +112,8 @@ DefaultInput.propTypes = {
   input: PropTypes.object,
   style: PropTypes.object,
   checked: PropTypes.bool,
+  fakeRadioStyles: PropTypes.object,
+  labelStyle: PropTypes.object,
 };
 
 export default withTheme(DefaultInput);
