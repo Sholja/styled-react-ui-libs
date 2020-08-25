@@ -102,6 +102,7 @@ const DefaultTextarea = props => {
           data-testid={dataTestId}
           style={Object.assign(textAreaStyle, errorStyle)}
           onKeyUp={handleKeyPressed}
+          placeholder={placeholder}
           {...rest}
           {...input}
         />
