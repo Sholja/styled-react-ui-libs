@@ -84,6 +84,19 @@ export const inputTypes = {
       backgroundColor: colors.greys[400],
     },
   },
+  stripped: {
+    borderTop: 'none',
+    borderLeft: 'none',
+    borderRight: 'none',
+    borderBottom: `${borders[1]} ${colors.inputs.strippedBorder}`,
+    borderRadius: '0px',
+  },
+  strippedWithError: {
+    borderTop: 'none',
+    borderLeft: 'none',
+    borderRight: 'none',
+    borderBottom: `${borders[1]} ${colors.oranges[1100]}`,
+  },
 };
 
 export const inputSizes = {

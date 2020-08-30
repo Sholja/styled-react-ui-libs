@@ -9,6 +9,10 @@ export const baseColors = {
   transparent: 'transparent',
   disabled: '#F1F4F7',
 
+  inputs: {
+    strippedBorder: '#EAEDF3'
+  },
+
   blacks: {
     100: '#363636',
   },
@@ -144,6 +148,7 @@ const colors = {
 
   transparent: baseColors.transparent,
   disabled: baseColors.disabled,
+  inputs: baseColors.inputs,
 };
 
 export default colors;
