@@ -80,4 +80,20 @@ storiesOf('DefaultInput', module)
     {
       notes: 'You can pass input type, in this case, type is password.',
     },
+  )
+  .add(
+    'Stripped Input',
+    () => (
+      <DefaultInput
+        type="text"
+        name="storybook"
+        meta={{ touched: false, error: '', invalid: false }}
+        label="Stripped input"
+        variant="stripped"
+        placeholder="This is a stripped input"
+      />
+    ),
+    {
+      notes: 'You can pass the boolean, "isStripped", and it will render different type of input.',
+    },
   );

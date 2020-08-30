@@ -62,7 +62,7 @@ const DefaultInput = props => {
 
   return (
     <>
-      <StyledLabel htmlFor={elementId} style={{ ...styles.label, labelStyle }}>
+      <StyledLabel htmlFor={elementId} style={{ ...styles.label, ...labelStyle }}>
         {label}
         <StyledInput
           type="radio"
@@ -77,7 +77,7 @@ const DefaultInput = props => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={{...styles.replacementInput, replacementInputStyles}}
+          style={{...styles.replacementInput, ...replacementInputStyles}}
           background={
             checked
               ? activeBackground || theme.colors.primary

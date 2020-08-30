@@ -40,6 +40,7 @@ const UploadButton = ({
   loaderThickness,
   loaderColor,
   loaderSpinSpeed,
+  btnStyle = {},
   ...rest
 }) => {
   const elementId = id || generateRandomString(16);
@@ -74,6 +75,7 @@ const UploadButton = ({
       loaderColor={loaderColor}
       loaderSpinSpeed={loaderSpinSpeed}
       data-testid={dataTestId}
+      style={btnStyle}
     >
       {children}
       <StyledUploadButton
@@ -105,6 +107,7 @@ UploadButton.propTypes = {
   loaderThickness: PropTypes.string,
   loaderColor: PropTypes.string,
   loaderSpinSpeed: PropTypes.number,
+  btnStyle: PropTypes.object,
 };
 
 export default withTheme(UploadButton);
