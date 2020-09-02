@@ -39,6 +39,7 @@ export {
   DynamicTable,
 } from './table';
 export { default as Tabs } from './tabs/tabs';
+export { default as TabsSelector } from './tabs-selector/tabs-selector';
 export { default as Text } from './text/text';
 export { default as UnorderedList } from './unordered-list/unordered-list';
 export { default as UploadButton } from './upload-button/upload-button';

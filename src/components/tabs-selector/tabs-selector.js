@@ -39,6 +39,7 @@ const TabsSelector = ({
       {options.map(item => {
         return (
           <Flex
+            key={`tab-selector-item-${item[fieldValue]}`}
             alignItems="center"
             justifyContent="center"
             padding={theme.space.xs}
