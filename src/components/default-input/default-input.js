@@ -55,6 +55,7 @@ const DefaultInput = props => {
     readOnly = false,
     disabled = false,
     variant = 'default',
+    wrapperProps = {},
     ...rest
   } = props;
 
@@ -72,7 +73,7 @@ const DefaultInput = props => {
           {required && elementRequired ? elementRequired : null}
         </Flex>
       )}
-      <Box marginTop="8px" position="relative">
+      <Box marginTop="8px" position="relative" {...wrapperProps}>
         <StyledInput
           id={id || name}
           data-testid={dataTestId}
@@ -107,6 +108,7 @@ DefaultInput.propTypes = {
   readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
   variant: PropTypes.string,
+  wrapperProps: PropTypes.object,
 };
 
 export default withTheme(DefaultInput);
