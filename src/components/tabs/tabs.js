@@ -43,6 +43,7 @@ const Tabs = ({
           onClick={() => onSingleItemClick(item.id, onClick)}
           data-testid={`tab-item-${item.id}`}
           style={{ ...{ cursor: 'pointer' }, ...tabItemStyle }}
+          key={`tabs-item-${index}`}
         >
           <Text
             fontSize={theme.fontSizes.sm}
@@ -80,11 +81,11 @@ const Tabs = ({
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
-      title: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      title: PropTypes.oneOfType([PropTypes.elementType, PropTypes.element, PropTypes.node, PropTypes.string]),
     }),
   ).isRequired,
-  active: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+  active: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onClick: PropTypes.func,
   gap: PropTypes.string,
   activeTextColor: PropTypes.string,
