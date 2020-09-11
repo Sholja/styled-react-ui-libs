@@ -76,6 +76,7 @@ const UploadButton = ({
       loaderSpinSpeed={loaderSpinSpeed}
       data-testid={dataTestId}
       style={btnStyle}
+      type="button"
     >
       {children}
       <StyledUploadButton
