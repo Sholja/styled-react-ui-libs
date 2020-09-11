@@ -43,5 +43,6 @@ export { default as TabsSelector } from './tabs-selector/tabs-selector';
 export { default as Text } from './text/text';
 export { default as UnorderedList } from './unordered-list/unordered-list';
 export { default as UploadButton } from './upload-button/upload-button';
+export { default as VerticalTimeline } from './vertical-timeline/vertical-timeline';
 
 export { default as DefaultTheme } from '../theme/theme';
