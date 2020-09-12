@@ -72,6 +72,9 @@ const VerticalTimelineItem = ({
               {title}
             </Text>
           </RenderIf>
+          <RenderIf show={title ? false : true}>
+            <Box height="17px"></Box>
+          </RenderIf>
           <RenderIf show={subtitle ? true : false}>
             <Text
               fontSize={theme.fontSizes.xs}
@@ -82,6 +85,9 @@ const VerticalTimelineItem = ({
             >
               {subtitle}
             </Text>
+          </RenderIf>
+          <RenderIf show={subtitle ? false : true}>
+            <Box height="14px" mt={theme.space.xxs}></Box>
           </RenderIf>
         </Box>
       </Flex>
