@@ -23,21 +23,15 @@ const VerticalTimeline = ({
 }) => {
   const theme = useTheme();
 
-  const handleItemClick = item => {
-    if (onClick) {
-      onClick(item);
-    }
-  };
-
   return (
     <Box {...rest}>
       {items.map((item, index) => (
-        <Box>
+        <Box key={`vertical-timeline-item-${index}`}>
           <VerticalTimelineItem
             {...item}
             index={index}
             timeLineStatuses={timeLineStatuses}
-            handleItemClick={handleItemClick}
+            handleItemClick={onClick}
             itemProps={itemProps}
             theme={theme}
             checkMarkHeight={checkMarkHeight}
