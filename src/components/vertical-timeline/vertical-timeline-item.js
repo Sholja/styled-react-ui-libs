@@ -33,7 +33,7 @@ const VerticalTimelineItem = ({
 
   return (
     <Box>
-      <Flex alignItems="baseline">
+      <Flex alignItems="flex-start">
         <Flex
           alignItems="center"
           justifyContent="center"
@@ -41,7 +41,7 @@ const VerticalTimelineItem = ({
           height={`${checkMarkHeight}px`}
           borderRadius="50%"
           background={options.backgroundColor}
-          position="absolute"
+          position="sticky"
           {...itemProps}
         >
           <RenderIf show={options.icon ? true : false}>
@@ -56,7 +56,7 @@ const VerticalTimelineItem = ({
           </RenderIf>
         </Flex>
         <Box
-          ml={`${checkMarkWidth + 10}px`}
+          ml="10px"
           pt={`${checkMarkHeight / 6}px`}
           style={{ cursor: handleItemClick ? 'pointer' : 'initial' }}
           onClick={() => handleTimelineItemClick(item)}
