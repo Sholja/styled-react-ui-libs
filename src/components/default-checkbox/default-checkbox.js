@@ -58,6 +58,7 @@ const DefaultInput = props => {
     checkedComponent,
     width = '16px',
     height = '16px',
+    labelStyle = {},
     ...rest
   } = props;
 
@@ -67,7 +68,7 @@ const DefaultInput = props => {
 
   return (
     <>
-      <StyledLabel htmlFor={elementId} style={{ ...styles.label, ...styleWithoutLabel }}>
+      <StyledLabel htmlFor={elementId} style={{ ...styles.label, ...styleWithoutLabel, ...labelStyle }}>
         {label}
         <StyledInput
           type="checkbox"
@@ -119,6 +120,7 @@ DefaultInput.propTypes = {
   defaultBorder: PropTypes.string,
   activeBorder: PropTypes,
   checkedComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  labelStyle: PropTypes.object,
 };
 
 export default withTheme(DefaultInput);
