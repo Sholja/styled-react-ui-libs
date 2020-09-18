@@ -57,6 +57,7 @@ const DefaultTextarea = props => {
     required = false,
     elementRequired,
     labelStyle = {},
+    onEnter,
     ...rest
   } = props;
 
@@ -67,6 +68,10 @@ const DefaultTextarea = props => {
       : {};
 
   const handleKeyPressed = event => {
+    if (event.keyCode === 13 && onEnter) {
+      onEnter(event.target.value);
+    }
+
     if (event.keyCode === 13 && isMultiline && onLineChanged) {
       const inputValues = getArrayOfValues(event.target.value);
 
@@ -130,6 +135,7 @@ DefaultTextarea.propTypes = {
   required: PropTypes.bool,
   elementRequired: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   labelStyle: PropTypes.object,
+  onEnter: PropTypes.func,
 };
 
 export default withTheme(DefaultTextarea);
