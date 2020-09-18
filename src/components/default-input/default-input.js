@@ -56,13 +56,20 @@ const DefaultInput = props => {
     disabled = false,
     variant = 'default',
     wrapperProps = {},
+    withAbsoluteError = false,
     ...rest
   } = props;
 
   const theme = useTheme();
-  const inputStyle = theme.inputTypes[variant] ? theme.inputTypes[variant] : theme.inputTypes.default;
+  const inputStyle = theme.inputTypes[variant]
+    ? theme.inputTypes[variant]
+    : theme.inputTypes.default;
   const errorStyle =
-    touched && error ? (variant === 'stripped' ? theme.inputTypes.strippedWithError : { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` }) : {};
+    touched && error
+      ? variant === 'stripped'
+        ? theme.inputTypes.strippedWithError
+        : { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` }
+      : {};
   const readOnlyStyle = readOnly ? { background: theme.colors.disabled } : {};
 
   return (
@@ -73,7 +80,12 @@ const DefaultInput = props => {
           {required && elementRequired ? elementRequired : null}
         </Flex>
       )}
-      <Box marginTop="8px" position="relative" {...wrapperProps}>
+      <Box
+        marginTop="8px"
+        position="relative"
+        {...wrapperProps}
+        pb={withAbsoluteError ? '20px' : '0px'}
+      >
         <StyledInput
           id={id || name}
           data-testid={dataTestId}
@@ -84,11 +96,19 @@ const DefaultInput = props => {
           {...rest}
           {...input}
         />
-        {touched && error && (
-          <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
-            {error}
-          </Text>
-        )}
+        {touched &&
+          error &&
+          (withAbsoluteError ? (
+            <Box position="absolute" bottom="0" left="0">
+              <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+                {error}
+              </Text>
+            </Box>
+          ) : (
+            <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+              {error}
+            </Text>
+          ))}
       </Box>
     </>
   );
@@ -109,6 +129,7 @@ DefaultInput.propTypes = {
   disabled: PropTypes.bool,
   variant: PropTypes.string,
   wrapperProps: PropTypes.object,
+  withAbsoluteError: PropTypes.bool,
 };
 
 export default withTheme(DefaultInput);

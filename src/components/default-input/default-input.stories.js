@@ -42,6 +42,7 @@ storiesOf('DefaultInput', module)
         meta={{ touched: true, error: 'Some invalidation error', invalid: true }}
         label="Storybook input"
         placeholder="This input has an error."
+        withAbsoluteError
       />
     ),
     {
