@@ -50,9 +50,8 @@ const Modal = ({
       right="0"
       top="0"
       bottom="0"
-      background={theme.colors.black}
-      opacity="0.9"
-      zIndex="999999"
+      background="rgba(0, 0, 0, 0.9)"
+      zIndex="99999"
     >
       <Box
         paddingY="30px"
@@ -70,6 +69,7 @@ const Modal = ({
           style={modalStyles}
           maxHeight="100%"
           overflow="auto"
+          zIndex="999999"
         >
           <Box
             display="flex"
@@ -95,7 +95,13 @@ const Modal = ({
             {children}
           </Box>
           {actionButton && (
-            <Box display="flex" alignItems="center" justifyContent="center" mt={2} paddingBottom="20px">
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              mt={2}
+              paddingBottom="20px"
+            >
               <Button variant="primary" btnSize="lg" onClick={onActionButtonClick}>
                 {actionButton}
               </Button>
