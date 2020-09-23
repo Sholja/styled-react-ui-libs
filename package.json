@@ -1,6 +1,6 @@
 {
   "name": "styled-react-ui-libs",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "emotion-theming": "^10.0.27",
     "polished": "^3.4.4",
     "react-icons": "^3.9.0",
+    "react-truncate": "^2.4.0",
     "simple-react-modal": "^0.5.1",
     "styled-system": "^5.1.5"
   },

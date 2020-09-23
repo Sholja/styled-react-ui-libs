@@ -29,6 +29,7 @@ export { default as Loader } from './loader/loader';
 export { default as Modal } from './modal/modal';
 export { default as Paging } from './paging/paging';
 export { default as RenderIf } from './render-if/render-if';
+export { default as ShowMore } from './show-more/show-more';
 export {
   Table,
   TableHead,
