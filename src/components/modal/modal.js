@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SimpleModal from 'simple-react-modal';
 import { FaTimes } from 'react-icons/fa';
 import { useTheme, withTheme } from 'emotion-theming';
 
 import Box from '../box/box';
 import Button from '../button/button';
 import Heading from '../heading/heading';
-import styles from './modal-styles';
 
 const Modal = ({
   open,
@@ -41,40 +39,71 @@ const Modal = ({
     ) : null;
   };
 
+  if (!open) {
+    return null;
+  }
+
   return (
-    <SimpleModal
-      show={open}
-      onClose={handleClose}
-      style={styles.container}
-      containerStyle={{ background: 'transparent' }}
-      closeOnOuterClick={disabled || blockCloseOnOuterClick ? false : true}
-      {...rest}
+    <Box
+      position="fixed"
+      left="0"
+      right="0"
+      top="0"
+      bottom="0"
+      background={theme.colors.black}
+      opacity="0.9"
+      zIndex="999999"
     >
-      <Box style={{ ...styles.modal, ...modalStyles }} minWidth={minWidth} maxWidth={maxWidth}>
+      <Box
+        paddingY="30px"
+        paddingX="10px"
+        height="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Box
-          display="flex"
-          pl="20px"
-          alignItems="center"
-          justifyContent="center"
-          style={titleStyles}
+          minWidth={minWidth}
+          maxWidth={maxWidth}
+          background={theme.colors.white}
+          borderRadius="3px"
+          style={modalStyles}
+          maxHeight="100%"
+          overflow="auto"
         >
-          {renderModalTitle(title, titleComponent)}
-          {!disabled && !hideCloseButton && (
-            <FaTimes onClick={handleClose} style={{ ...styles.close, ...closeButtonStyles }} />
+          <Box
+            display="flex"
+            pl="20px"
+            pt="5px"
+            pr="5px"
+            alignItems="center"
+            justifyContent="center"
+            style={titleStyles}
+          >
+            {renderModalTitle(title, titleComponent)}
+            {!disabled && !hideCloseButton && (
+              <FaTimes
+                onClick={handleClose}
+                style={{
+                  ...{ marginLeft: 'auto', cursor: 'pointer', marginTop: theme.space[0] },
+                  ...closeButtonStyles,
+                }}
+              />
+            )}
+          </Box>
+          <Box p="20px" style={contentStyles}>
+            {children}
+          </Box>
+          {actionButton && (
+            <Box display="flex" alignItems="center" justifyContent="center" mt={2} paddingBottom="20px">
+              <Button variant="primary" btnSize="lg" onClick={onActionButtonClick}>
+                {actionButton}
+              </Button>
+            </Box>
           )}
         </Box>
-        <Box p="20px" style={contentStyles}>
-          {children}
-        </Box>
-        {actionButton && (
-          <Box display="flex" alignItems="center" justifyContent="center" mt={2}>
-            <Button variant="primary" btnSize="lg" onClick={onActionButtonClick}>
-              {actionButton}
-            </Button>
-          </Box>
-        )}
       </Box>
-    </SimpleModal>
+    </Box>
   );
 };
 
