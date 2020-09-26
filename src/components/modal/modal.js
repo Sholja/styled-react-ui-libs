@@ -74,8 +74,8 @@ const Modal = ({
           <Box
             display="flex"
             pl="20px"
-            pt="5px"
-            pr="5px"
+            pt="20px"
+            pr="20px"
             alignItems="center"
             justifyContent="center"
             style={titleStyles}
