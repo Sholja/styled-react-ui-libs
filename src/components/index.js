@@ -24,6 +24,7 @@ export { default as Header } from './header/header';
 export { default as Heading } from './heading/heading';
 export { default as Hidden } from './hidden/hidden';
 export { default as Hyperlink } from './hyperlink/hyperlink';
+export { default as Iframe } from './iframe/iframe';
 export { default as Image } from './image/image';
 export { default as Loader } from './loader/loader';
 export { default as Modal } from './modal/modal';
