@@ -44,7 +44,7 @@ const StyledLabel = styled('label')(
 
 const DefaultInput = props => {
   const {
-    meta: { error },
+    meta: { touched, error },
     input,
     id,
     name,
@@ -97,7 +97,7 @@ const DefaultInput = props => {
           </RenderIf>
         </Box>
       </StyledLabel>
-      {error && (
+      {touched && error && (
         <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
           {error}
         </Text>
