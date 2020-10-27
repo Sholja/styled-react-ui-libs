@@ -1,8 +1,10 @@
 import { darken, lighten } from 'polished';
 
 import colors from './colors';
+import { borders } from './borders';
 import { fontSizes } from './font-sizes';
 import { space } from './space';
+import { fontWeights } from './font-weights';
 
 const DARKEN_AMOUNT = 0.1;
 
@@ -11,8 +13,8 @@ export const buttons = {
     color: colors.white,
     backgroundColor: colors.primary,
     ':hover': {
-      color: colors.white,
-      backgroundColor: lighten(DARKEN_AMOUNT, colors.primary),
+      color: `${colors.white} !important`,
+      backgroundColor: `${lighten(DARKEN_AMOUNT, colors.primary)} !important`,
     },
   },
   primaryOutline: {
@@ -20,16 +22,16 @@ export const buttons = {
     color: colors.primary,
     boxShadow: `0 0 0 1px ${colors.primary}`,
     ':hover': {
-      color: colors.white,
-      backgroundColor: colors.primary,
+      color: `${colors.white} !important`,
+      backgroundColor: `${colors.primary} !important`,
     },
   },
   primaryInverse: {
     color: colors.primary,
     backgroundColor: colors.white,
     ':hover': {
-      color: colors.primary,
-      backgroundColor: colors.white,
+      color: `${colors.primary} !important`,
+      backgroundColor: `${colors.white} !important`,
     },
   },
 
@@ -37,17 +39,17 @@ export const buttons = {
     color: colors.white,
     backgroundColor: colors.grey,
     ':hover': {
-      color: colors.white,
-      backgroundColor: lighten(DARKEN_AMOUNT, colors.grey),
+      color: `${colors.white} !important`,
+      backgroundColor: `${lighten(DARKEN_AMOUNT, colors.grey)} !important`,
     },
   },
   secondaryOutline: {
     backgroundColor: colors.white,
-    color: colors.grey,
-    boxShadow: `0 0 0 1px ${colors.grey}`,
+    color: colors.greys[2200],
+    border: `${borders[1]}${colors.greys[2200]}`,
     ':hover': {
-      color: colors.white,
-      backgroundColor: colors.grey,
+      color: `${colors.white} !important`,
+      backgroundColor: `${colors.greys[2200]} !important`,
     },
   },
 
@@ -55,8 +57,8 @@ export const buttons = {
     color: colors.white,
     backgroundColor: colors.warning,
     ':hover': {
-      color: colors.white,
-      backgroundColor: darken(DARKEN_AMOUNT, colors.warning),
+      color: `${colors.white} !important`,
+      backgroundColor: `${darken(DARKEN_AMOUNT, colors.warning)} !important`,
     },
   },
   warningOutline: {
@@ -64,8 +66,8 @@ export const buttons = {
     color: colors.warning,
     boxShadow: `0 0 0 1px ${colors.warning}`,
     ':hover': {
-      color: colors.white,
-      backgroundColor: colors.warning,
+      color: `${colors.white} !important`,
+      backgroundColor: `${colors.warning} !important`,
     },
   },
 
@@ -73,8 +75,8 @@ export const buttons = {
     color: colors.white,
     backgroundColor: colors.danger,
     ':hover': {
-      color: colors.white,
-      backgroundColor: darken(DARKEN_AMOUNT, colors.danger),
+      color: `${colors.white} !important`,
+      backgroundColor: `${darken(DARKEN_AMOUNT, colors.danger)} !important`,
     },
   },
   dangerOutline: {
@@ -82,8 +84,8 @@ export const buttons = {
     color: colors.danger,
     boxShadow: `0 0 0 1px ${colors.danger}`,
     ':hover': {
-      color: colors.white,
-      backgroundColor: colors.danger,
+      color: `${colors.white} !important`,
+      backgroundColor: `${colors.danger} !important`,
     },
   },
 
@@ -92,8 +94,8 @@ export const buttons = {
     backgroundColor: colors.success,
     borderColor: colors.success,
     ':hover': {
-      color: colors.white,
-      backgroundColor: lighten(DARKEN_AMOUNT, colors.success),
+      color: `${colors.white} !important`,
+      backgroundColor: `${lighten(DARKEN_AMOUNT, colors.success)} !important`,
     },
   },
   successOutline: {
@@ -101,9 +103,24 @@ export const buttons = {
     color: colors.success,
     boxShadow: `0 0 0 1px ${colors.success}`,
     ':hover': {
-      color: colors.white,
-      backgroundColor: colors.success,
+      color: `${colors.white} !important`,
+      backgroundColor: `${colors.success} !important`,
     },
+  },
+
+  default: {
+    backgroundColor: colors.greys[2500],
+    color: colors.greys[2200],
+    ':hover': {
+      color: `${colors.white} !important`,
+      backgroundColor: `${lighten(DARKEN_AMOUNT, colors.grey)} !important`,
+    },
+  },
+
+  transparent: {
+    backgroundColor: colors.transparent,
+    color: colors.primary,
+    fontWeight: fontWeights.bold,
   },
 
   closeModal: {
@@ -114,7 +131,7 @@ export const buttons = {
     fontSize: `${fontSizes.xxl}px !important`,
     padding: '0 !important',
     ':hover': {
-      color: lighten(DARKEN_AMOUNT, colors.grey),
+      color: `${lighten(DARKEN_AMOUNT, colors.grey)} !important`,
     },
   },
 
@@ -127,7 +144,7 @@ export const buttons = {
     fontWeight: '100',
     padding: '0 !important',
     ':hover': {
-      color: colors.black,
+      color: `${colors.black} !important`,
     },
   },
 };
@@ -138,11 +155,11 @@ export const buttonSizes = {
     padding: `${space.xxs}px ${space.sm}px`,
   },
   md: {
-    fontSize: fontSizes.base,
+    fontSize: fontSizes.xs,
     padding: `${space.sm}px ${space.lg}px`,
   },
   lg: {
-    fontSize: fontSizes.lg,
+    fontSize: fontSizes.xs,
     padding: `${space.md}px ${space.xl}px`,
   },
 };
