@@ -32,9 +32,10 @@ const StyledButton = styled(Box)(
     outline: 0,
     transition: '100ms',
   },
-  props => ({
+  props =>  ({
     borderRadius: themeGet('radii.sm')(props),
     border: themeGet('borders.0')(props),
+    '&:hover': props.style[':hover'],
   }),
   compose(borders, borderColor, boxShadow, borderRadius, typography, space, color, layout),
   buttonStyle,
@@ -46,7 +47,6 @@ StyledButton.defaultProps = {
   disabled: false,
   btnSize: 'md',
   textDecoration: 'none',
-  variant: 'primary',
   fontWeight: 'bold',
   display: 'flex',
   justifyContent: 'center',
@@ -88,6 +88,7 @@ const Button = ({
   const disabledStyle = disabled
     ? DISABLED_STYLES
     : theme.buttons[variant] || theme.buttons.primary;
+
   const btnSizeStyle = theme.buttonSizes[btnSize] || theme.buttonSizes.md;
   const buttonStyle = { ...disabledStyle, ...btnSizeStyle, ...style };
 
