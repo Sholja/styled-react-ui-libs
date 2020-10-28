@@ -26,6 +26,7 @@ export { default as Hidden } from './hidden/hidden';
 export { default as Hyperlink } from './hyperlink/hyperlink';
 export { default as Iframe } from './iframe/iframe';
 export { default as Image } from './image/image';
+export { default as ImageExpand } from './images-expand/images-expand';
 export { default as Loader } from './loader/loader';
 export { default as Modal } from './modal/modal';
 export { default as Paging } from './paging/paging';
