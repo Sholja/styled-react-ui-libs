@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { space, background, compose, position } from 'styled-system';
+import { space, background, compose, position, border } from 'styled-system';
 import { withTheme } from 'emotion-theming';
 
 const StyledImage = styled('img')(
@@ -9,7 +9,7 @@ const StyledImage = styled('img')(
     maxWidth: '100%',
     height: 'auto',
   },
-  compose(space, background, position),
+  compose(space, background, position, border),
 );
 
 const Image = ({ src, alt, ...rest }) => <StyledImage src={src} alt={alt} {...rest} />;
