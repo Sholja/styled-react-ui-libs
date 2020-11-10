@@ -137,8 +137,16 @@ const HorizontalTimeline = ({
 };
 
 HorizontalTimeline.propTypes = {
-  startDate: PropTypes.object.isRequired,
-  endDate: PropTypes.object.isRequired,
+  startDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
+  endDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
+  height: PropTypes.number,
+  background: PropTypes.string,
+  passedColor: PropTypes.string,
+  separatorComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
+  separatorColor: PropTypes.string,
+  dateProps: PropTypes.object,
+  passedProps: PropTypes.object,
+  leftProps: PropTypes.object,
 };
 
 export default withTheme(HorizontalTimeline);
