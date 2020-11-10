@@ -20,4 +20,19 @@ export const injectStyle = style => {
   styleSheet.insertRule(style, styleSheet.cssRules.length);
 };
 
+export const getDatesDifferenceInDays = (startDate, endDate) => {
+  const start = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+  const end = Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+
+  return new Date(endDate) <= new Date(startDate) ? 0 : Math.ceil((end - start) / (1000 * 3600 * 24));
+};
+
+export const formatDate = date => {
+  const dateToFormat = new Date(date);
+
+  return `${dateToFormat.toLocaleString('default', {
+    month: 'long',
+  })} ${dateToFormat.getDate()}, ${dateToFormat.getFullYear()}`;
+};
+
 export default injectStyle;

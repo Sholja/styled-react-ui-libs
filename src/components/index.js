@@ -23,6 +23,7 @@ export { default as GridItem } from './grid-item/grid-item';
 export { default as Header } from './header/header';
 export { default as Heading } from './heading/heading';
 export { default as Hidden } from './hidden/hidden';
+export { default as HorizontalTimeline } from './horizontal-timeline/horizontal-timeline';
 export { default as Hyperlink } from './hyperlink/hyperlink';
 export { default as Iframe } from './iframe/iframe';
 export { default as Image } from './image/image';
