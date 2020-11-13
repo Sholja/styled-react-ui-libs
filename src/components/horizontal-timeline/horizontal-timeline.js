@@ -30,6 +30,18 @@ const HorizontalTimeline = ({
   const leftPercentage = 100 - passedPercentage;
   const currentDateId = generateRandomString(16);
 
+  const getTextMargin = () => {
+    if (passedDays <= 2) {
+      return 0;
+    }
+
+    if (getDatesDifferenceInDays(currentDate, new Date(endDate)) <= 2) {
+      return `-${currentDateMargin}`;
+    }
+
+    return `-${currentDateMargin / 2}`;
+  };
+
   useEffect(() => {
     const text = document.getElementById(currentDateId);
 
@@ -120,7 +132,7 @@ const HorizontalTimeline = ({
       <Box>
         <Box ml={`${passedPercentage}%`} mt="20px">
           <Text
-            ml={`-${currentDateMargin / 2}px`}
+            ml={`${getTextMargin()}px`}
             id={currentDateId}
             width="fit-content"
             fontSize={theme.fontSizes.xxs}
@@ -137,8 +149,10 @@ const HorizontalTimeline = ({
 };
 
 HorizontalTimeline.propTypes = {
-  startDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
-  endDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
+  startDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.instanceOf(Date)])
+    .isRequired,
+  endDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.instanceOf(Date)])
+    .isRequired,
   height: PropTypes.number,
   background: PropTypes.string,
   passedColor: PropTypes.string,
