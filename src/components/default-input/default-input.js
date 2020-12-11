@@ -57,6 +57,8 @@ const DefaultInput = props => {
     variant = 'default',
     wrapperProps = {},
     withAbsoluteError = false,
+    withAbsoluteErrorPadding = '20px',
+    errorBottomPosition = '0',
     ...rest
   } = props;
 
@@ -84,7 +86,7 @@ const DefaultInput = props => {
         marginTop="8px"
         position="relative"
         {...wrapperProps}
-        pb={withAbsoluteError ? '20px' : '0px'}
+        pb={withAbsoluteError ? withAbsoluteErrorPadding : '0px'}
       >
         <StyledInput
           id={id || name}
@@ -99,7 +101,7 @@ const DefaultInput = props => {
         {touched &&
           error &&
           (withAbsoluteError ? (
-            <Box position="absolute" bottom="0" left="0">
+            <Box position="absolute" bottom={errorBottomPosition} left="0">
               <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
                 {error}
               </Text>
@@ -130,6 +132,8 @@ DefaultInput.propTypes = {
   variant: PropTypes.string,
   wrapperProps: PropTypes.object,
   withAbsoluteError: PropTypes.bool,
+  withAbsoluteErrorPadding: PropTypes.string,
+  errorBottomPosition: PropTypes.string,
 };
 
 export default withTheme(DefaultInput);
