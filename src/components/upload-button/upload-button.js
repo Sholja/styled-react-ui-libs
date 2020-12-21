@@ -52,6 +52,8 @@ const UploadButton = ({
       const files = acceptMultiple ? allFiles : [allFiles[0]];
       onChange(files);
     }
+
+    e.target.value = '';
   };
 
   const handleButtonClick = () => {
