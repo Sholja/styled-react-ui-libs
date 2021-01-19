@@ -55,6 +55,7 @@ const ImagesExpand = ({
         return (
           <Image
             key={`image-expander-item-${index}`}
+            alt={`image-expander-item-${index}`}
             src={cached ? url : `${url}?${new Date().getTime()}`}
             onClick={() => handleImageClick(url)}
             style={{
