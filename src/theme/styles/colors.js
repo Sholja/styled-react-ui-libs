@@ -13,6 +13,9 @@ export const baseColors = {
     strippedBorder: '#EAEDF3'
   },
 
+  modalBackground: '#fff',
+  modalTitleColor: '#000',
+
   blacks: {
     100: '#363636',
   },
@@ -149,6 +152,8 @@ const colors = {
   transparent: baseColors.transparent,
   disabled: baseColors.disabled,
   inputs: baseColors.inputs,
+  modalBackground: baseColors.modalBackground,
+  modalTitleColor: baseColors.modalTitleColor,
 };
 
 export default colors;
