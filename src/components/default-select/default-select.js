@@ -75,7 +75,7 @@ const DefaultSelect = props => {
     <>
       {label && (
         <Flex alignItems="center">
-          <Text style={{ ...labelStyle, ...styles.label }}>{label}</Text>
+          <Text style={{ ...styles.label, ...labelStyle }}>{label}</Text>
           {required && elementRequired ? elementRequired : null}
         </Flex>
       )}
