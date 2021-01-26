@@ -59,6 +59,7 @@ const DefaultInput = props => {
     withAbsoluteError = false,
     withAbsoluteErrorPadding = '20px',
     errorBottomPosition = '0',
+    readOnlyStyles = {},
     ...rest
   } = props;
 
@@ -72,13 +73,18 @@ const DefaultInput = props => {
         ? theme.inputTypes.strippedWithError
         : { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` }
       : {};
-  const readOnlyStyle = readOnly ? { background: theme.colors.disabled } : {};
+  const readOnlyStyle =
+    readOnly || disabled
+      ? readOnlyStyles
+        ? readOnlyStyles
+        : { background: theme.colors.disabled }
+      : {};
 
   return (
     <>
       {label && (
         <Flex alignItems="center">
-          <Text style={{ ...labelStyle, ...styles.label }}>{label}</Text>
+          <Text style={{ ...styles.label, ...labelStyle }}>{label}</Text>
           {required && elementRequired ? elementRequired : null}
         </Flex>
       )}

@@ -73,7 +73,7 @@ const Button = ({
 }) => {
   const theme = useTheme();
 
-  const DISABLED_STYLES = {
+  const DISABLED_STYLES = theme.buttons && theme.buttons.disabled ? theme.buttons.disabled : {
     cursor: 'not-allowed',
     color: theme.colors.white,
     backgroundColor: theme.colors.greys[300],

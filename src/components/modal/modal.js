@@ -33,7 +33,7 @@ const Modal = ({
     }
 
     return modalTitle ? (
-      <Heading as="h4" fontWeight={theme.fontWeights.bold}>
+      <Heading as="h4" fontWeight={theme.fontWeights.bold} color={theme.colors.modalTitleColor}>
         {modalTitle}
       </Heading>
     ) : null;
@@ -78,20 +78,23 @@ const Modal = ({
             pr="20px"
             alignItems="center"
             justifyContent="center"
-            style={titleStyles}
+            style={{...{ background: theme.colors.modalBackground }, ...titleStyles}}
           >
             {renderModalTitle(title, titleComponent)}
             {!disabled && !hideCloseButton && (
               <FaTimes
                 onClick={handleClose}
                 style={{
-                  ...{ marginLeft: 'auto', cursor: 'pointer', marginTop: theme.space[0] },
+                  ...{ marginLeft: 'auto', cursor: 'pointer', marginTop: theme.space[0], color: theme.colors.modalTitleColor },
                   ...closeButtonStyles,
                 }}
               />
             )}
           </Box>
-          <Box p="20px" style={contentStyles}>
+          <Box
+            p="20px"
+            style={{ ...{ background: theme.colors.modalBackground }, ...contentStyles }}
+          >
             {children}
           </Box>
           {actionButton && (
