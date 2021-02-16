@@ -51,7 +51,7 @@ const Modal = ({
       top="0"
       bottom="0"
       background="rgba(0, 0, 0, 0.9)"
-      zIndex="99999"
+      zIndex="99999999999"
     >
       <Box
         paddingY="30px"
