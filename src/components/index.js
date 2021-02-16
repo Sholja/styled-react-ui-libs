@@ -22,6 +22,7 @@ export { default as Grid } from './grid/grid';
 export { default as GridItem } from './grid-item/grid-item';
 export { default as Header } from './header/header';
 export { default as Heading } from './heading/heading';
+export { default as HideIf } from './hide-if/hide-if';
 export { default as Hidden } from './hidden/hidden';
 export { default as HorizontalTimeline } from './horizontal-timeline/horizontal-timeline';
 export { default as Hyperlink } from './hyperlink/hyperlink';

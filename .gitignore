@@ -29,3 +29,5 @@ yarn-error.log*
 .idea
 
 .env
+
+.firebase/hosting.YnVpbGQ.cache
