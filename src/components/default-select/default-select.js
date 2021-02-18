@@ -62,6 +62,7 @@ const DefaultSelect = props => {
     elementRequired,
     arrowElement,
     arrowStyles = {},
+    wrapperProps = {},
     ...rest
   } = props;
 
@@ -79,7 +80,7 @@ const DefaultSelect = props => {
           {required && elementRequired ? elementRequired : null}
         </Flex>
       )}
-      <Box marginTop="8px" position="relative">
+      <Box marginTop="8px" position="relative" {...wrapperProps}>
         <StyledSelect
           id={id || name}
           data-testid={dataTestId}
@@ -136,6 +137,7 @@ DefaultSelect.propTypes = {
   labelStyle: PropTypes.object,
   arrowElement: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   arrowStyles: PropTypes.object,
+  wrapperProps: PropTypes.object,
 };
 
 export default withTheme(DefaultSelect);
