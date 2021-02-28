@@ -60,6 +60,12 @@ const DefaultInput = props => {
     withAbsoluteErrorPadding = '20px',
     errorBottomPosition = '0',
     readOnlyStyles = {},
+    floatingLabel = false,
+    customLabel,
+    wrapperLabelStyles = {},
+    inputFloatingStyles = {},
+    containerProps = {},
+    errorStyles = {},
     ...rest
   } = props;
 
@@ -71,7 +77,7 @@ const DefaultInput = props => {
     touched && error
       ? variant === 'stripped'
         ? theme.inputTypes.strippedWithError
-        : { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` }
+        : { border: `${theme.borders[1]} ${theme.colors.oranges[1100] || theme.colors.danger}`, borderColor: theme.colors.oranges[1100] || theme.colors.danger }
       : {};
   const readOnlyStyle =
     readOnly || disabled
@@ -79,52 +85,93 @@ const DefaultInput = props => {
         ? readOnlyStyles
         : { background: theme.colors.disabled }
       : {};
+  const floatingLabelInputStyles = floatingLabel
+    ? { ...{ border: 'none', padding: '0px' }, ...inputFloatingStyles }
+    : {};
+  const labelWrapperStyles = floatingLabel ? { ...{}, ...wrapperLabelStyles } : wrapperLabelStyles;
+  const containerStyles = floatingLabel ? {
+    ...inputStyle,
+    ...style,
+    ...errorStyle,
+    ...readOnlyStyle,
+  } : {};
 
   return (
     <>
-      {label && (
-        <Flex alignItems="center">
-          <Text style={{ ...styles.label, ...labelStyle }}>{label}</Text>
-          {required && elementRequired ? elementRequired : null}
-        </Flex>
-      )}
       <Box
-        marginTop="8px"
-        position="relative"
-        {...wrapperProps}
-        pb={withAbsoluteError ? withAbsoluteErrorPadding : '0px'}
+        position={floatingLabel ? 'relative' : 'initial'}
+        style={containerStyles}
+        {...containerProps}
       >
-        <StyledInput
-          id={id || name}
-          data-testid={dataTestId}
-          placeholder={placeholder}
-          required={required}
-          disabled={disabled || readOnly}
-          style={{ ...inputStyle, ...style, ...errorStyle, ...readOnlyStyle }}
-          {...rest}
-          {...input}
-        />
-        {touched &&
-          error &&
-          (withAbsoluteError ? (
-            <Box position="absolute" bottom={errorBottomPosition} left="0">
-              <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+        {(label || customLabel) && (
+          <Flex alignItems="center" style={labelWrapperStyles}>
+            {customLabel ? (
+              customLabel
+            ) : (
+              <Text style={{ ...styles.label, ...labelStyle }}>{label}</Text>
+            )}
+            {required && elementRequired ? elementRequired : null}
+          </Flex>
+        )}
+        <Box
+          marginTop={floatingLabel ? '0px' : '8px'}
+          position="relative"
+          {...wrapperProps}
+          pb={withAbsoluteError ? withAbsoluteErrorPadding : '0px'}
+        >
+          <StyledInput
+            id={id || name}
+            data-testid={dataTestId}
+            placeholder={placeholder}
+            required={required}
+            disabled={disabled || readOnly}
+            style={{
+              ...inputStyle,
+              ...style,
+              ...errorStyle,
+              ...readOnlyStyle,
+              ...floatingLabelInputStyles,
+            }}
+            {...rest}
+            {...input}
+          />
+          {touched &&
+            error &&
+            !floatingLabel &&
+            (withAbsoluteError ? (
+              <Box position="absolute" bottom={errorBottomPosition} left="0">
+                <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs} style={errorStyles}>
+                  {error}
+                </Text>
+              </Box>
+            ) : (
+              <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs} style={errorStyles}>
                 {error}
               </Text>
-            </Box>
-          ) : (
-            <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+            ))}
+        </Box>
+      </Box>
+      {touched &&
+        error &&
+        floatingLabel &&
+        (withAbsoluteError ? (
+          <Box position="absolute" bottom={errorBottomPosition} left="0" style={errorStyles} style={errorStyles}>
+            <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs}>
               {error}
             </Text>
-          ))}
-      </Box>
+          </Box>
+        ) : (
+          <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs} style={errorStyles}>
+            {error}
+          </Text>
+        ))}
     </>
   );
 };
 
 DefaultInput.propTypes = {
   name: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.element, PropTypes.node, PropTypes.string, PropTypes.object]),
   id: PropTypes.string,
   dataTestId: PropTypes.string,
   inputProps: PropTypes.object,
@@ -140,6 +187,12 @@ DefaultInput.propTypes = {
   withAbsoluteError: PropTypes.bool,
   withAbsoluteErrorPadding: PropTypes.string,
   errorBottomPosition: PropTypes.string,
+  floatingLabel: PropTypes.bool,
+  customLabel: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  wrapperLabelStyles: PropTypes.object,
+  inputFloatingStyles: PropTypes.object,
+  containerProps: PropTypes.object,
+  errorStyles: PropTypes.object,
 };
 
 export default withTheme(DefaultInput);
