@@ -54,6 +54,7 @@ const DefaultInput = props => {
     fakeRadioStyles = {},
     replacementInputStyles = {},
     labelStyle = {},
+    errorStyles = {},
     ...rest
   } = props;
 
@@ -77,7 +78,7 @@ const DefaultInput = props => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={{...styles.replacementInput, ...replacementInputStyles}}
+          style={{ ...styles.replacementInput, ...replacementInputStyles }}
           background={
             checked
               ? activeBackground || theme.colors.primary
@@ -96,7 +97,11 @@ const DefaultInput = props => {
         </Box>
       </StyledLabel>
       {error && (
-        <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+        <Text
+          color={theme.colors.oranges[1100] || theme.colors.danger}
+          fontSize={theme.fontSizes.xs}
+          style={errorStyles}
+        >
           {error}
         </Text>
       )}
@@ -116,6 +121,7 @@ DefaultInput.propTypes = {
   fakeRadioStyles: PropTypes.object,
   replacementInputStyles: PropTypes.object,
   labelStyle: PropTypes.object,
+  errorStyles: PropTypes.object,
 };
 
 export default withTheme(DefaultInput);

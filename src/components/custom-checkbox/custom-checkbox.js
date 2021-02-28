@@ -15,6 +15,7 @@ const CustomCheckbox = ({
   activeColor,
   inactiveColor,
   iconColor,
+  errorStyles = {},
   ...rest
 }) => {
   const theme = useTheme();
@@ -46,7 +47,11 @@ const CustomCheckbox = ({
         </RenderIf>
       </Flex>
       {touched && error && (
-        <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+        <Text
+          color={theme.colors.oranges[1100] || theme.colors.danger}
+          fontSize={theme.fontSizes.xs}
+          style={errorStyles}
+        >
           {error}
         </Text>
       )}
@@ -60,6 +65,7 @@ CustomCheckbox.propTypes = {
   activeColor: PropTypes.string,
   inactiveColor: PropTypes.string,
   iconColor: PropTypes.string,
+  errorStyles: PropTypes.object,
 };
 
 export default withTheme(CustomCheckbox);

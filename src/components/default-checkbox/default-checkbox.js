@@ -59,6 +59,7 @@ const DefaultInput = props => {
     width = '16px',
     height = '16px',
     labelStyle = {},
+    errorStyles = {},
     ...rest
   } = props;
 
@@ -68,7 +69,10 @@ const DefaultInput = props => {
 
   return (
     <>
-      <StyledLabel htmlFor={elementId} style={{ ...styles.label, ...styleWithoutLabel, ...labelStyle }}>
+      <StyledLabel
+        htmlFor={elementId}
+        style={{ ...styles.label, ...styleWithoutLabel, ...labelStyle }}
+      >
         {label}
         <StyledInput
           type="checkbox"
@@ -98,7 +102,11 @@ const DefaultInput = props => {
         </Box>
       </StyledLabel>
       {touched && error && (
-        <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+        <Text
+          color={theme.colors.oranges[1100] || theme.colors.danger}
+          fontSize={theme.fontSizes.xs}
+          style={errorStyles}
+        >
           {error}
         </Text>
       )}
@@ -121,6 +129,7 @@ DefaultInput.propTypes = {
   activeBorder: PropTypes,
   checkedComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   labelStyle: PropTypes.object,
+  errorStyles: PropTypes.object,
 };
 
 export default withTheme(DefaultInput);

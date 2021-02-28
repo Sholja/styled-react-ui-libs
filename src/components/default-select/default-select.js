@@ -63,12 +63,15 @@ const DefaultSelect = props => {
     arrowElement,
     arrowStyles = {},
     wrapperProps = {},
+    errorStyles = {},
     ...rest
   } = props;
 
   const theme = useTheme();
   const errorStyle =
-    touched && error ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` } : {};
+    touched && error
+      ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100] || theme.colors.danger}` }
+      : {};
 
   const selectStyles = { ...styles.select, ...style, ...errorStyle };
 
@@ -109,7 +112,11 @@ const DefaultSelect = props => {
           {arrowElement ? arrowElement : <IoIosArrowDown />}
         </Box>
         {touched && error && (
-          <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>
+          <Text
+            color={theme.colors.oranges[1100] || theme.colors.danger}
+            fontSize={theme.fontSizes.xs}
+            style={errorStyles}
+          >
             {error}
           </Text>
         )}
@@ -138,6 +145,7 @@ DefaultSelect.propTypes = {
   arrowElement: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   arrowStyles: PropTypes.object,
   wrapperProps: PropTypes.object,
+  errorStyles: PropTypes.object,
 };
 
 export default withTheme(DefaultSelect);
