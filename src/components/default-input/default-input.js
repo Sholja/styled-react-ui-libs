@@ -59,7 +59,7 @@ const DefaultInput = props => {
     withAbsoluteError = false,
     withAbsoluteErrorPadding = '20px',
     errorBottomPosition = '0',
-    readOnlyStyles = {},
+    readOnlyStyles,
     floatingLabel = false,
     customLabel,
     wrapperLabelStyles = {},
@@ -77,7 +77,10 @@ const DefaultInput = props => {
     touched && error
       ? variant === 'stripped'
         ? theme.inputTypes.strippedWithError
-        : { border: `${theme.borders[1]} ${theme.colors.oranges[1100] || theme.colors.danger}`, borderColor: theme.colors.oranges[1100] || theme.colors.danger }
+        : {
+            border: `${theme.borders[1]} ${theme.colors.oranges[1100] || theme.colors.danger}`,
+            borderColor: theme.colors.oranges[1100] || theme.colors.danger,
+          }
       : {};
   const readOnlyStyle =
     readOnly || disabled
@@ -89,12 +92,14 @@ const DefaultInput = props => {
     ? { ...{ border: 'none', padding: '0px' }, ...inputFloatingStyles }
     : {};
   const labelWrapperStyles = floatingLabel ? { ...{}, ...wrapperLabelStyles } : wrapperLabelStyles;
-  const containerStyles = floatingLabel ? {
-    ...inputStyle,
-    ...style,
-    ...errorStyle,
-    ...readOnlyStyle,
-  } : {};
+  const containerStyles = floatingLabel
+    ? {
+        ...inputStyle,
+        ...style,
+        ...errorStyle,
+        ...readOnlyStyle,
+      }
+    : {};
 
   return (
     <>
@@ -140,12 +145,20 @@ const DefaultInput = props => {
             !floatingLabel &&
             (withAbsoluteError ? (
               <Box position="absolute" bottom={errorBottomPosition} left="0">
-                <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs} style={errorStyles}>
+                <Text
+                  color={theme.colors.oranges[1100] || theme.colors.danger}
+                  fontSize={theme.fontSizes.xs}
+                  style={errorStyles}
+                >
                   {error}
                 </Text>
               </Box>
             ) : (
-              <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs} style={errorStyles}>
+              <Text
+                color={theme.colors.oranges[1100] || theme.colors.danger}
+                fontSize={theme.fontSizes.xs}
+                style={errorStyles}
+              >
                 {error}
               </Text>
             ))}
@@ -155,13 +168,25 @@ const DefaultInput = props => {
         error &&
         floatingLabel &&
         (withAbsoluteError ? (
-          <Box position="absolute" bottom={errorBottomPosition} left="0" style={errorStyles} style={errorStyles}>
-            <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs}>
+          <Box
+            position="absolute"
+            bottom={errorBottomPosition}
+            left="0"
+            style={errorStyles}
+          >
+            <Text
+              color={theme.colors.oranges[1100] || theme.colors.danger}
+              fontSize={theme.fontSizes.xs}
+            >
               {error}
             </Text>
           </Box>
         ) : (
-          <Text color={theme.colors.oranges[1100] || theme.colors.danger} fontSize={theme.fontSizes.xs} style={errorStyles}>
+          <Text
+            color={theme.colors.oranges[1100] || theme.colors.danger}
+            fontSize={theme.fontSizes.xs}
+            style={errorStyles}
+          >
             {error}
           </Text>
         ))}
@@ -171,7 +196,12 @@ const DefaultInput = props => {
 
 DefaultInput.propTypes = {
   name: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.element, PropTypes.node, PropTypes.string, PropTypes.object]),
+  label: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   id: PropTypes.string,
   dataTestId: PropTypes.string,
   inputProps: PropTypes.object,

@@ -58,13 +58,14 @@ const DefaultTextarea = props => {
     elementRequired,
     labelStyle = {},
     onEnter,
+    errorStyles = {},
     ...rest
   } = props;
 
   const theme = useTheme();
   const errorStyle =
     touched && error
-      ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100]}` }
+      ? { border: `${theme.borders[1]} ${theme.colors.oranges[1100] || theme.colors.danger}` }
       : {};
 
   const handleKeyPressed = event => {
@@ -85,7 +86,11 @@ const DefaultTextarea = props => {
         position="absolute"
         right="15px"
         top="50%"
-        style={Object.assign(rightElStyle, { transform: 'translateY(-50%)' }, rightElClick ? { cursor: 'pointer' } : {})}
+        style={Object.assign(
+          rightElStyle,
+          { transform: 'translateY(-50%)' },
+          rightElClick ? { cursor: 'pointer' } : {},
+        )}
         onClick={rightElClick}
       >
         {typeof element === 'function' ? element() : element}
@@ -105,7 +110,7 @@ const DefaultTextarea = props => {
         <StyledTextarea
           id={id || name}
           data-testid={dataTestId}
-          style={{...textAreaStyle, ...errorStyle}}
+          style={{ ...textAreaStyle, ...errorStyle }}
           onKeyUp={handleKeyPressed}
           placeholder={placeholder}
           {...rest}
@@ -113,7 +118,15 @@ const DefaultTextarea = props => {
         />
         {rightEl && rightElementShouldRender && renderRightElement(rightEl)}
       </Box>
-      {touched && error && <Text color={theme.colors.oranges[1100]} fontSize={theme.fontSizes.xs}>{error}</Text>}
+      {touched && error && (
+        <Text
+          color={theme.colors.oranges[1100] || theme.colors.danger}
+          fontSize={theme.fontSizes.xs}
+          style={errorStyles}
+        >
+          {error}
+        </Text>
+      )}
     </>
   );
 };
@@ -136,6 +149,7 @@ DefaultTextarea.propTypes = {
   elementRequired: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   labelStyle: PropTypes.object,
   onEnter: PropTypes.func,
+  errorStyles: PropTypes.object,
 };
 
 export default withTheme(DefaultTextarea);
