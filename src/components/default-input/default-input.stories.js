@@ -97,4 +97,20 @@ storiesOf('DefaultInput', module)
     {
       notes: 'You can pass the boolean, "isStripped", and it will render different type of input.',
     },
+  )
+  .add(
+    'Text input floating label',
+    () => (
+      <DefaultInput
+        name="storybook"
+        meta={{ touched: true, error: 'Some invalidation error', invalid: true }}
+        label="Storybook input"
+        placeholder="Types something here"
+        floatingLabel
+      />
+    ),
+    {
+      notes:
+        'If the "floatingLabel" prop is passed as true, label will be inside the input.',
+    },
   );
