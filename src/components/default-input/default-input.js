@@ -66,6 +66,7 @@ const DefaultInput = props => {
     inputFloatingStyles = {},
     containerProps = {},
     errorStyles = {},
+    inputOverrideStyles = {},
     ...rest
   } = props;
 
@@ -98,6 +99,7 @@ const DefaultInput = props => {
         ...style,
         ...errorStyle,
         ...readOnlyStyle,
+        ...inputOverrideStyles,
       }
     : {};
 
@@ -136,6 +138,7 @@ const DefaultInput = props => {
               ...errorStyle,
               ...readOnlyStyle,
               ...floatingLabelInputStyles,
+              ...inputOverrideStyles,
             }}
             {...rest}
             {...input}
@@ -223,6 +226,7 @@ DefaultInput.propTypes = {
   inputFloatingStyles: PropTypes.object,
   containerProps: PropTypes.object,
   errorStyles: PropTypes.object,
+  inputOverrideStyles: PropTypes.object,
 };
 
 export default withTheme(DefaultInput);
