@@ -7,7 +7,18 @@ import PagingItem from './paging-item';
 import Box from '../box/box';
 import Flex from '../flex/flex';
 
-const Paging = ({ min, max, page, onChange, ...rest }) => {
+const Paging = ({
+  min,
+  max,
+  page,
+  onChange,
+  wrapperProps = {},
+  leftArrowProps = {},
+  rightArrowProps = {},
+  pageProps = {},
+  iconsStyle = {},
+  ...rest
+}) => {
   const theme = useTheme();
 
   const renderPagingItems = () => {
@@ -18,7 +29,13 @@ const Paging = ({ min, max, page, onChange, ...rest }) => {
 
     for (let i = minElements; i <= maxElements; i++) {
       elements.push(
-        <PagingItem key={`paging-item-${i}`} active={page} page={i} onChange={onChange} />,
+        <PagingItem
+          key={`paging-item-${i}`}
+          active={page}
+          page={i}
+          onChange={onChange}
+          {...pageProps}
+        />,
       );
     }
 
@@ -34,11 +51,10 @@ const Paging = ({ min, max, page, onChange, ...rest }) => {
         borderRadius="4px"
         border={`${theme.borders[1]} ${theme.colors.greys[1800]}`}
         backgroundColor={theme.colors.white}
+        {...wrapperProps}
       >
         <Box
-          borderRight={
-            page === min ? 'none' : `${theme.borders[1]} ${theme.colors.greys[1300]}`
-          }
+          borderRight={page === min ? 'none' : `${theme.borders[1]} ${theme.colors.greys[1300]}`}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -50,14 +66,13 @@ const Paging = ({ min, max, page, onChange, ...rest }) => {
           }}
           onClick={() => onChange(page - 1)}
           data-testid="pager-previous"
+          {...leftArrowProps}
         >
-          <IoMdArrowDropleft style={{ color: theme.colors.greys[1000] }} />
+          <IoMdArrowDropleft style={{ ...{ color: theme.colors.greys[1000] }, ...iconsStyle }} />
         </Box>
         {renderPagingItems()}
         <Box
-          borderLeft={
-            page === max ? 'none' : `${theme.borders[1]} ${theme.colors.greys[1300]}`
-          }
+          borderLeft={page === max ? 'none' : `${theme.borders[1]} ${theme.colors.greys[1300]}`}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -69,8 +84,9 @@ const Paging = ({ min, max, page, onChange, ...rest }) => {
           }}
           onClick={() => onChange(page + 1)}
           data-testid="pager-next"
+          {...rightArrowProps}
         >
-          <IoMdArrowDropright style={{ color: theme.colors.greys[1000] }} />
+          <IoMdArrowDropright style={{ ...{ color: theme.colors.greys[1000] }, ...iconsStyle }} />
         </Box>
       </Flex>
     </Box>
@@ -82,6 +98,11 @@ Paging.propTypes = {
   max: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  wrapperProps: PropTypes.object,
+  leftArrowProps: PropTypes.object,
+  rightArrowProps: PropTypes.object,
+  pageProps: PropTypes.object,
+  iconsStyle: PropTypes.object,
 };
 
 export default withTheme(Paging);
