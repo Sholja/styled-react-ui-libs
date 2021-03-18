@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Box from '../box/box';
 import DefaultTheme from '../../theme/theme';
 
-const PagingItem = ({ active, page, onChange }) => {
+const PagingItem = ({ active, page, onChange, ...rest }) => {
   return (
     <Box
       display="flex"
@@ -22,6 +22,7 @@ const PagingItem = ({ active, page, onChange }) => {
         backgroundColor: active === page ? DefaultTheme.colors.primary : 'transparent',
       }}
       onClick={() => onChange(page)}
+      {...rest}
     >
       {page}
     </Box>
