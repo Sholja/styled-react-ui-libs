@@ -24,6 +24,7 @@ const Modal = ({
   hideCloseButton = false,
   blockCloseOnOuterClick = false,
   closeButtonStyles = {},
+  wrapperProps = {},
   ...rest
 }) => {
   const theme = useTheme();
@@ -52,6 +53,7 @@ const Modal = ({
       bottom="0"
       background="rgba(0, 0, 0, 0.9)"
       zIndex="99999999999"
+      {...wrapperProps}
     >
       <Box
         paddingY="30px"
@@ -132,6 +134,7 @@ Modal.propTypes = {
   hideCloseButton: PropTypes.bool,
   blockCloseOnOuterClick: PropTypes.bool,
   closeButtonStyles: PropTypes.object,
+  wrapperProps: PropTypes.object,
 };
 
 export default withTheme(Modal);
