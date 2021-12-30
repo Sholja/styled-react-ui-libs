@@ -16,6 +16,7 @@ const CustomCheckbox = ({
   inactiveColor,
   iconColor,
   errorStyles = {},
+  iconStyles = {},
   ...rest
 }) => {
   const theme = useTheme();
@@ -42,7 +43,10 @@ const CustomCheckbox = ({
         <RenderIf show={active}>
           <IoIosCheckmark
             data-testid="custom-checkbox"
-            style={{ color: iconColor || theme.colors.greens[1000], fontSize: theme.fontSizes.lg }}
+            style={{
+              ...{ color: iconColor || theme.colors.greens[1000], fontSize: theme.fontSizes.lg },
+              ...iconStyles,
+            }}
           />
         </RenderIf>
       </Flex>
@@ -66,6 +70,7 @@ CustomCheckbox.propTypes = {
   inactiveColor: PropTypes.string,
   iconColor: PropTypes.string,
   errorStyles: PropTypes.object,
+  iconStyles: PropTypes.object,
 };
 
 export default withTheme(CustomCheckbox);
