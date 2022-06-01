@@ -61,6 +61,7 @@ const DefaultSelect = props => {
     required = false,
     elementRequired,
     arrowElement,
+    hideArrow = false,
     arrowStyles = {},
     wrapperProps = {},
     errorStyles = {},
@@ -69,9 +70,7 @@ const DefaultSelect = props => {
 
   const theme = useTheme();
   const errorStyle =
-    touched && error
-      ? { borderColor: `${theme.colors.oranges[1100] || theme.colors.danger}` }
-      : {};
+    touched && error ? { borderColor: `${theme.colors.oranges[1100] || theme.colors.danger}` } : {};
 
   const selectStyles = { ...styles.select, ...style, ...errorStyle };
 
@@ -104,13 +103,15 @@ const DefaultSelect = props => {
             </StyledOption>
           ))}
         </StyledSelect>
-        <Box
-          position="absolute"
-          right="10px"
-          style={{ ...{ transform: 'translateY(-135%)', cursor: 'pointer' }, ...arrowStyles }}
-        >
-          {arrowElement ? arrowElement : <IoIosArrowDown />}
-        </Box>
+        {!hideArrow && (
+          <Box
+            position="absolute"
+            right="10px"
+            style={{ ...{ transform: 'translateY(-135%)', cursor: 'pointer' }, ...arrowStyles }}
+          >
+            {arrowElement ? arrowElement : <IoIosArrowDown />}
+          </Box>
+        )}
         {touched && error && (
           <Text
             color={theme.colors.oranges[1100] || theme.colors.danger}
